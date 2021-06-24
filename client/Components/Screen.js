@@ -3,14 +3,15 @@ import {SafeAreaView, ScrollView, StyleSheet, View} from 'react-native';
 import BottomMenu from './BottomMenu'
 
 
-const Screen = ({children}) => {
+const Screen = ({screen, children}) => {
+
     return (
         <SafeAreaView style={styles.screen}>
             <ScrollView style={styles.main}>
                 {children}
             </ScrollView>
             <View style={styles.bottom}>
-                <BottomMenu/>
+                <BottomMenu screen={screen}/>
             </View>
 
         </SafeAreaView>
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
         height: '100%',
         flex: 1,
         paddingTop:50,
-        backgroundColor: 'green'
+        backgroundColor: 'black'
     },
     main: {
         height: '87.5%',

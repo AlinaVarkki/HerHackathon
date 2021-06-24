@@ -3,6 +3,7 @@ import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 import activitiesApi from "../client/api/activitiesApi";
 import Screen from "./Components/Screen";
+import FeedScreen from "./views/FeedScreen";
 
 export default function App() {
 
@@ -23,9 +24,7 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Screen/>
-    </View>
+    <FeedScreen/>
   );
 }
 

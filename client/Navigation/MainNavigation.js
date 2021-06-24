@@ -4,6 +4,12 @@ import {NavigationContainer} from '@react-navigation/native';
 import DrawerNavigation from './DrawerNavigation'
 import ProfileScreen from '../views/ProfilePageScreen'
 import SubmissionScreen from '../views/SubmissionScreen'
+import FeedScreen from "../views/FeedScreen";
+import TeamScreen from "../views/TeamScreen";
+import CompanyScreen from "../views/CompanyScreen";
+import DiscoverScreen from "../views/DiscoverScreen";
+import ProfilePageScreen from "../views/ProfilePageScreen";
+import ButtonMenu from "../Components/BottomMenu";
 
 
 
@@ -11,12 +17,12 @@ const Stack = createStackNavigator();
 
 const MainNavigation = () => (
     <NavigationContainer>
-         <Stack.Navigator initialRouteName="log in" screenOptions={{headerShown: false}}>
-             <Stack.Screen name="LogInScreen" component={}/>
-             <Stack.Screen name="possibly register?" component={}/>
-             <Stack.Screen name="DrawerNavigation" component={DrawerNavigation}/>
-             <Stack.Screen name="Profile" component={ProfileScreen}/>
-             <Stack.Screen name="SubmissionScreen" component={SubmissionScreen}/>
+         <Stack.Navigator initialRouteName="FeedScreen" screenOptions={{headerShown: false}}>
+             <Stack.Screen name="FeedScreen" component={FeedScreen}/>
+             <Stack.Screen name="TeamScreen" component={TeamScreen}/>
+             <Stack.Screen name="CompanyScreen" component={CompanyScreen}/>
+             <Stack.Screen name="DiscoverScreen" component={DiscoverScreen}/>
+             <Stack.Screen name="ProfilePageScreen" component={ProfilePageScreen}/>
 
          </Stack.Navigator>
     </NavigationContainer>

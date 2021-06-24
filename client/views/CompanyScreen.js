@@ -3,13 +3,12 @@ import {StyleSheet, View, Text} from "react-native";
 import Screen from "../Components/Screen";
 import {useNavigation} from "@react-navigation/native";
 
-const TeamScreen = () => {
-    const navigation = useNavigation();
+const CompanyScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Screen screen={"team"}>
-                <Text style={{color: 'white'}}>team screen</Text>
+            <Screen screen={"company"}>
+                <Text style={{color: 'white'}}>company screen</Text>
             </Screen>
         </View>
     );
@@ -22,4 +21,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default TeamScreen;
+export default CompanyScreen;
