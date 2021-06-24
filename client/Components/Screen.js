@@ -25,14 +25,17 @@ const styles = StyleSheet.create({
         backgroundColor: 'green'
     },
     main: {
-        height: '90%',
+        height: '87.5%',
         paddingHorizontal: 20,
-        backgroundColor: 'white'
-
+        backgroundColor: 'black'
     },
     bottom:{
-        height: '10%',
-        backgroundColor: 'pink'
+        height: '12.5%',
+        width: '100%',
+        alignItems: 'center',
+
+        borderTopWidth: 1,
+        borderTopColor: 'grey'
     }
 });
 
