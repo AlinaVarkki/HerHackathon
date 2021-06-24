@@ -1,6 +1,9 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
+import FeedScreen from '../views/FeedScreen'
+import TeamScreen from '../views/TeamScreen'
+
 
 const Drawer = createDrawerNavigator();
 
@@ -26,7 +29,11 @@ const DrawerNavigation = () => {
                           //         fontSize: 17.5,
                           //     }}}
         >
-            <Drawer.Screen name="" component={}/>
+            <Drawer.Screen name="Home" component={FeedScreen}/>
+            <Drawer.Screen name="Team" component={TeamScreen}/>
+            <Drawer.Screen name="Settings" component={FeedScreen}/>
+
+
         </Drawer.Navigator>
     )
 

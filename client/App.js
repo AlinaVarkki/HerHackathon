@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 import activitiesApi from "../client/api/activitiesApi";
+import Screen from "./Components/Screen";
 
 export default function App() {
 
@@ -23,14 +24,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your awtwwp hello!</Text>
-        <Text>{state.myText}</Text>
-      <Button
-          onPress={onPressLearnMore}
-          title="Learn More"
-          color="#841584"
-      />
-      <StatusBar style="auto" />
+      <Screen/>
     </View>
   );
 }
@@ -38,8 +32,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: '100%'
   },
 });
