@@ -23,7 +23,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your awtwwp!</Text>
+      <Text>Open up App.js to start working on your awtwwp hello!</Text>
         <Text>{state.myText}</Text>
       <Button
           onPress={onPressLearnMore}
