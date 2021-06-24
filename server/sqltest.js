@@ -1,10 +1,11 @@
+require('dotenv').config();
 const { Connection, Request } = require("tedious");
-
 const express = require('express');
 const formidable = require('express-formidable');
-const mysql = require('mysql');
 
+const mysql = require('mysql');
 const app = express();
+
 app.use(formidable());
 
 app.listen(3001, function(){
@@ -16,13 +17,13 @@ const config = {
     authentication: {
         options: {
             userName: "herhackathon", // update me
-            password: "" // update me
+            password: process.env.password // update me
         },
         type: "default"
     },
-    server: "herhackathon.database.windows.net", // update me
+    server: process.env.server, // update me
     options: {
-        database: "herhackathon", //update me
+        database: process.env.database, //update me
         encrypt: true
     }
 };
