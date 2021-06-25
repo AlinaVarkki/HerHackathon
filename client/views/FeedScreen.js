@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet, View, Text} from "react-native";
 import {useNavigation} from "@react-navigation/native";
-import Feed from "../components/Feed";
-import HorizontalMenu from "../components/HorizontalMenu";
+import Feed from "../Components/Feed";
+import HorizontalMenu from "../Components/HorizontalMenu";
 
 const FeedScreen = () => {
 

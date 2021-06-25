@@ -2,7 +2,8 @@ import React from 'react';
 import {createStackNavigator} from "@react-navigation/stack";
 import {NavigationContainer} from '@react-navigation/native';
 
-import MainScreen from "../views/FeedScreen.js";
+import MainScreen from "../views/MainScreen";
+import StoriesSlides from "../views/StoriesSlides";
 
 
 
@@ -14,6 +15,7 @@ const MainNavigation = () => (
          <Stack.Navigator initialRouteName="MainScreen" screenOptions={{headerShown: false}}>
 
              <Stack.Screen name="MainScreen" component={MainScreen}/>
+             <Stack.Screen name="StoriesSlides" component={StoriesSlides}/>
 
 
          </Stack.Navigator>

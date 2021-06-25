@@ -1,13 +1,28 @@
 import React from 'react';
-import {StyleSheet, View, Dimensions, Text} from "react-native";
+import {StyleSheet, View, Dimensions, Text, TouchableWithoutFeedback, Image} from "react-native";
 import ColorPalette from "../Assets/ColorPalette";
+import StoriesSlides from "../views/StoriesSlides";
+import {useNavigation} from "@react-navigation/native";
 
-const StoriesBubble = () => {
+
+const StoriesBubble = ({photo, storyID}) => {
+
+    const navigation = useNavigation();
+
+    const openStory = () => {
+        console.log("opening a story")
+        navigation.navigate("StoriesSlides");
+
+    }
 
     return (
-        <View style={{...styles.box, backgroundColor: ColorPalette.blue}}>
+        <TouchableWithoutFeedback onPress={openStory}>
 
+        <View style={{...styles.box, backgroundColor: ColorPalette.blue}}>
+            <Image source={photo} style={styles.photo}/>
         </View>
+
+        </TouchableWithoutFeedback>
 
     );
 
@@ -24,21 +39,13 @@ const styles = StyleSheet.create({
         margin: 7.5,
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 5
+        padding: 5,
 
     },
-    title:{
-        color: ColorPalette.offwhite,
-        textAlign: 'center',
-        fontSize: 30,
-        letterSpacing: 1.5,
-        fontFamily: 'Roboto',
-        fontWeight: 'bold'
-    },
-    text:{
-        color: ColorPalette.offwhite,
-        textAlign: 'center',
-
+    photo: {
+        width: squareSize,
+        height: squareSize,
+        borderRadius: 20,
     }
 });
 

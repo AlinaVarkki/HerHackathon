@@ -3,31 +3,50 @@ import {Dimensions, StyleSheet, View, FlatList} from "react-native";
 import ColorPalette from "../Assets/ColorPalette";
 import SquareLeaderboardBoi from "./SquareLeaderboardBoi";
 import StoriesBubble from "./StoriesBubble";
+import NewStoryAdder from "./NewStoryAdder";
 
 const Stories = () => {
 
     const stories = [{
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+        id: '0',
             title: 'First Item',
+        photo: require('../Assets/tempProfilePic.png')
     },
     {
         id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
             title: 'Second Item',
+        photo: require('../Assets/tempProfilePic.png')
+
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29d72',
             title: 'Third Item',
+        photo: require('../Assets/tempProfilePic.png')
+
     },{
             id: '58694a0f-3da1-471f-bd96-145571e29d7244',
             title: 'Third Item',
+            photo: require('../Assets/tempProfilePic.png')
+
         },{
             id: '58694a0f-3da1-471f-bd96-145571e29d7442',
             title: 'Third Item',
+            photo: require('../Assets/tempProfilePic.png')
+
         }];
 
-    const renderStory = ({item}) => (
-        <StoriesBubble/>
-    );
+    const renderStory = ({item}) => {
+        if (item.id === '0') {
+           return (
+               <NewStoryAdder/>
+           );
+
+        } else {
+            return (
+                <StoriesBubble photo={item.photo} storyID={item.id}/>
+            );
+        }
+    };
 
     return (
         <View style={styles.container}>
@@ -54,7 +73,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         width: '100%',
-        height: width*0.4,
+        height: width*0.3,
+
     },
     leader: {
     },

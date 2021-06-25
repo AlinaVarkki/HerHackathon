@@ -1,14 +1,21 @@
 import React from 'react';
-import {StyleSheet, View, Dimensions, Text} from "react-native";
+import {StyleSheet, View, Dimensions, Text,TouchableWithoutFeedback} from "react-native";
 import ColorPalette from "../Assets/ColorPalette";
 
-const NewStoryAdder = ({title, text, color}) => {
+
+const NewStoryAdder = () => {
+
+    const addStory = () => {
+        console.log("adding a story")
+    }
+
 
     return (
-        <View style={{...styles.box, backgroundColor: color}}>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.text}>{text}</Text>
+        <TouchableWithoutFeedback onPress={addStory}>
+        <View style={{...styles.box, backgroundColor: ColorPalette.offwhite}}>
+            <Text style={styles.plus}>+</Text>
         </View>
+        </TouchableWithoutFeedback>
 
     );
 
@@ -28,18 +35,10 @@ const styles = StyleSheet.create({
         padding: 5
 
     },
-    title:{
-        color: ColorPalette.offwhite,
-        textAlign: 'center',
-        fontSize: 30,
-        letterSpacing: 1.5,
-        fontFamily: 'Roboto',
-        fontWeight: 'bold'
-    },
-    text:{
-        color: ColorPalette.offwhite,
-        textAlign: 'center',
-
+    plus: {
+        fontSize: 55,
+        // fontWeight: 'bold',
+        color: ColorPalette.darkgrey
     }
 });
 

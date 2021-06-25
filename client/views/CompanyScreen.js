@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
         color: ColorPalette.offwhite,
         fontFamily: 'Roboto',
         fontSize: 15,
+        paddingTop: 20,
     }
 });
 
