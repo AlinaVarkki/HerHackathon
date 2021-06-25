@@ -1,10 +1,16 @@
 import React from 'react';
-import {Text, View, StyleSheet, TouchableWithoutFeedback, Button, Pressable, Image, Dimensions} from 'react-native';
+import {Text, View, StyleSheet, TouchableWithoutFeedback, FlatList, Button, Pressable, Image, Dimensions} from 'react-native';
 import RoundProfileImage from "./RoundProfileImage";
 
 
-const ActivityCard = ({activity, description}) => {
-    const {width} = Dimensions.get("screen");
+const ActivityCard = ({activity, description, images}) => {
+
+    const profileRender = ({item}) => (
+        <RoundProfileImage
+            image={item}
+        />
+    )
+
 
     return (
         <TouchableWithoutFeedback>
@@ -15,9 +21,12 @@ const ActivityCard = ({activity, description}) => {
                         <Text style={styles.textWhiteLower}>{description}</Text>
                     </View>
                     <View style={styles.leftLower}>
-                        <RoundProfileImage image={require('../resources/images/1200px-React-icon.svg.png')}/>
-                        <RoundProfileImage image={require('../resources/images/1200px-React-icon.svg.png')}/>
-                        <RoundProfileImage image={require('../resources/images/1200px-React-icon.svg.png')}/>
+                        <FlatList
+                            data = {images}
+                            keyExtractor={image => image.toString()}
+                            renderItem={profileRender}
+                            horizontal={true}
+                        />
                         <Text style={{color : 'white', fontWeight: 'bold', fontSize: 31}}>/5</Text>
                     </View>
                 </View>
