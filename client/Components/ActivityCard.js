@@ -27,7 +27,7 @@ const ActivityCard = ({activity, description, images}) => {
                             renderItem={profileRender}
                             horizontal={true}
                         />
-                        <Text style={{color : 'white', fontWeight: 'bold', fontSize: 31}}>/5</Text>
+                        <Text style={{color : 'white', fontWeight: 'bold', fontSize: 27}}>/5</Text>
                     </View>
                 </View>
                 <View style={styles.rightSection}>

@@ -62,7 +62,6 @@ const FeedScreen = () => {
                     renderItem={renderCategories}
                     keyExtractor={item => item.id}
                     horizontal={true}
-
                 />
             </View>
             <View style={styles.lowerPart}>
@@ -87,6 +86,7 @@ const styles = StyleSheet.create({
     },
     whiteText: {
         paddingLeft: 20,
+        paddingBottom: 10,
         color: 'white',
         fontWeight: 'bold',
         fontSize: 20,

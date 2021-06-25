@@ -5,7 +5,7 @@ import RoundProfileImage from "./RoundProfileImage";
 
 
 const Feed = ({children}) => {
-    let images1 = [require('../resources/images/1200px-React-icon.svg.png'), require('../resources/images/sketch1.png'), require('../Assets/tempProfilePic.png')]
+    let images1 = [require('../resources/images/1200px-React-icon.svg.png'), require('../resources/images/sketch1.png'), require('../Assets/tempProfilePic.png'), require('../Assets/icon.png')]
     let images2 = [require('../resources/images/1200px-React-icon.svg.png'), require('../resources/images/sketch1.png')]
     let images3 = [require('../resources/images/1200px-React-icon.svg.png'), require('../resources/images/sketch1.png')]
     let images4 = [require('../resources/images/sketch1.png')]
