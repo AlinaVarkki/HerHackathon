@@ -6,9 +6,7 @@ const DiscoverScreen = () => {
 
     return (
         <View style={styles.container}>
-            <View screen={"discover"}>
                 <Text style={{color: 'white'}}>DiscoverScreen </Text>
-            </View>
         </View>
     );
 }

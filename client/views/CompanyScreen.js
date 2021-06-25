@@ -6,9 +6,7 @@ const CompanyScreen = () => {
 
     return (
         <View style={styles.container}>
-            <View screen={"company"}>
                 <Text style={{color: 'white'}}>company screen</Text>
-            </View>
         </View>
     );
 }

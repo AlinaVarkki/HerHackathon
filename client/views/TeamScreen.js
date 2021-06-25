@@ -5,9 +5,7 @@ const TeamScreen = () => {
 
     return (
         <View style={styles.container}>
-            <View screen={"team"}>
                 <Text style={{color: 'white'}}>team screen</Text>
-            </View>
         </View>
     );
 }
