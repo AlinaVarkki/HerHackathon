@@ -5,12 +5,15 @@ import Top3Leaderboard from "../Components/Top3Leaderboard";
 import CompanyStats from "../Components/CompanyStats";
 import ColorPalette from "../Assets/ColorPalette";
 import RestLeaderboard from "../Components/RestLeaderboard";
+import Stories from "../Components/Stories";
 
 
 const CompanyScreen = () => {
 
     return (
         <View style={styles.container}>
+            <Stories/>
+
             <Text style={styles.subtitle}>Latest company statistics</Text>
             <CompanyStats/>
 
