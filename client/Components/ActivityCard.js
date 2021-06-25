@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Text, View, StyleSheet, TouchableWithoutFeedback, FlatList, Button, Pressable, Image, Dimensions} from 'react-native';
 import RoundProfileImage from "./RoundProfileImage";
 
 
 const ActivityCard = ({activity, description, images}) => {
+
+    let images1 = [require('../resources/images/1200px-React-icon.svg.png'), require('../resources/images/sketch1.png'), require('../Assets/tempProfilePic.png')]
+
+    const[participants, setParticipants] = useState(images);
 
     const profileRender = ({item}) => (
         <RoundProfileImage
@@ -11,6 +15,9 @@ const ActivityCard = ({activity, description, images}) => {
         />
     )
 
+    const updateParticipant = () => {
+        setParticipants(images1)
+    }
 
     return (
         <TouchableWithoutFeedback>
@@ -22,7 +29,7 @@ const ActivityCard = ({activity, description, images}) => {
                     </View>
                     <View style={styles.leftLower}>
                         <FlatList
-                            data = {images}
+                            data = {participants}
                             keyExtractor={image => image.toString()}
                             renderItem={profileRender}
                             horizontal={true}
@@ -35,7 +42,7 @@ const ActivityCard = ({activity, description, images}) => {
                         <Image style={{height: 110, width: 110, overflow: 'visible'}} source={require('../resources/images/sketch1.png')} />
                     </View>
                     <View style={styles.rightLower}>
-                        <Pressable style={styles.joinButton}>
+                        <Pressable style={styles.joinButton} onPress={updateParticipant}>
                             <Text style={styles.buttonText}>JOIN</Text>
                         </Pressable>
                     </View>

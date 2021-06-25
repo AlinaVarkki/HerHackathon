@@ -46,7 +46,7 @@ function queryDatabase() {
 
     // Read all rows from table
     const request = new Request(
-        `SELECT * FROM [dbo].[GreenActivities] `,
+        `SELECT * FROM [dbo].[Activities]  WHERE ActivityName LIKE ('Cycling')`,
         (err, rowCount) => {
             if (err) {
                 console.error(err.message);
@@ -58,7 +58,7 @@ function queryDatabase() {
 
     request.on("row", columns => {
         columns.forEach(column => {
-            console.log("%s\t%s", column.metadata.colName, column.value);
+            console.log(column.value);
         });
     });
 
@@ -71,7 +71,7 @@ app.post('/getActivities', (req, res) => {
     let activities = []
 
     const request = new Request(
-        `SELECT * FROM [dbo].[GreenActivities] `,
+        `SELECT * FROM [dbo].[Activities] `,
         (err, rowCount) => {
             if (err) {
                 console.error(err.message);
