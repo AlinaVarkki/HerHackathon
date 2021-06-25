@@ -2,30 +2,16 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 import activitiesApi from "../client/api/activitiesApi";
+import ActivityCard from "./components/ActivityCard";
+import Feed from "./components/Feed";
 // import Screen from "./Components/Screen";
 
 export default function App() {
 
-    const state = {
-        myText: 'My Original Text'
-    }
-
-    // const updateText = () => {
-    //     this.setState({myText: 'My Changed Text'})
-    // }
-
-  const onPressLearnMore = async() => {
-    console.log("yesnoww");
-    await activitiesApi.getActivities().then(r => {
-      console.log(r.data);
-      // updateText()
-    })
-  }
 
   return (
     <View style={styles.container}>
-        <Text>hey</Text>
-        <Text>hey</Text>
+        <Feed></Feed>
       {/*<Screen/>*/}
     </View>
   );
@@ -33,6 +19,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: 'black',
     flex: 1,
     height: '100%'
   },
