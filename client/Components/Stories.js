@@ -76,11 +76,7 @@ const styles = StyleSheet.create({
         height: width*0.3,
 
     },
-    leader: {
-    },
-    notLeader: {
-        paddingTop: width*0.05,
-    }
+
 });
 
 

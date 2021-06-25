@@ -1,28 +1,27 @@
 import React from 'react';
 import {StyleSheet, View, Dimensions, Text} from "react-native";
 import ColorPalette from "../Assets/ColorPalette";
-import ProgressPart from "./ProgressPart";
+import Goal from "./Goal";
 
-const Goal = ({title, progress, label}) => {
-
+const ProgressPart = ({title, progress, label, color = ColorPalette.offwhite}) => {
     return (
 
-        <View style={styles.box}>
-            <View style={styles.container}>
-                <ProgressPart title={title} progress={progress} label={label} color={ColorPalette.offwhite}/>
+        <View style={styles.container}>
+            <View style={styles.info}>
+                <Text style={styles.title}>{title}</Text>
+                <Text style={styles.title}>{label}</Text>
+
             </View>
             <View>
-                <Text style={styles.progress}>{progress}%</Text>
+                <View style={{...styles.barBack, backgroundColor: (color === ColorPalette.offwhite ? ColorPalette.darkgrey : 'black')}}></View>
+                <View style={{...styles.barFront, width: progress+'%', backgroundColor: color}}></View>
             </View>
-
         </View>
 
     );
 
 };
 
-const {width} = Dimensions.get("screen");
-const lineWidth = width*0.75;
 
 const styles = StyleSheet.create({
     box:{
@@ -31,20 +30,13 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
         marginVertical: 10,
     },
-    container:{
-        width: lineWidth,
-    },
+
     title: {
-      color: ColorPalette.offwhite,
-        paddingBottom:10,
-        fontSize: 15,
-    },
-    progress:{
         color: ColorPalette.offwhite,
-        alignItems: 'center',
-        fontSize: 23,
-        fontWeight: 'bold',
+        paddingBottom:5,
+        fontSize: 17,
     },
+
     info:{
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -52,14 +44,13 @@ const styles = StyleSheet.create({
     },
     barBack: {
         width: '100%',
-        height: 15,
+        height: 10,
         borderRadius:25,
         backgroundColor: ColorPalette.darkgrey,
     },
     barFront: {
-        height: 15,
+        height: 10,
         borderRadius:25,
-        backgroundColor: ColorPalette.offwhite,
         position: 'absolute'
 
     },
@@ -67,4 +58,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Goal;
+export default ProgressPart;
