@@ -21,7 +21,7 @@ const ActivityCard = ({children}) => {
                 </View>
                 <View style={styles.rightSection}>
                     <View style={styles.rightUpper}>
-                        <Image style={{height: 140, width: 140, overflow: 'visible'}} source={require('../resources/images/sketch1.png')} />
+                        <Image style={{height: 150, width: 150, overflow: 'visible'}} source={require('../resources/images/sketch1.png')} />
                     </View>
                     <View style={styles.rightLower}>
                         <Pressable style={styles.joinButton}>
@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         borderRadius: 30,
         borderWidth: 1,
-        borderColor: 'black'
+        borderColor: 'black',
+        flexWrap: 'nowrap'
     },
     leftSection: {
         flex: 4,
@@ -67,18 +68,19 @@ const styles = StyleSheet.create({
     }, leftUpper: {
         flex: 8,
         overflow: 'visible',
-
     },
     leftLower: {
         flex: 5,
         alignItems: 'center',
         flexDirection: 'row',
-        paddingLeft: 17
+        paddingLeft: 17,
+        overflow: 'visible',
     },
     rightUpper: {
         flex: 8,
         alignItems: 'center',
         overflow: 'visible',
+        flexWrap: 'nowrap',
     },
     rightLower: {
         flex: 5,

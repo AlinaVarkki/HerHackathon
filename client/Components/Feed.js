@@ -19,7 +19,8 @@ const Feed = ({children}) => {
 const styles = StyleSheet.create({
     feedContainer: {
         flex: 1,
-        margin: 20
+        margin: 20,
+        backgroundColor: 'black'
     }
 })
 
