@@ -1,13 +1,12 @@
 import React from 'react';
 import {StyleSheet, View, Text} from "react-native";
-import {useNavigation} from "@react-navigation/native";
 
-const FeedScreen = () => {
 
+const DiscoverScreen = () => {
 
     return (
         <View style={styles.container}>
-                <Text style={{color: 'white'}}>feed screen</Text>
+                <Text style={{color: 'white'}}>DiscoverScreen </Text>
         </View>
     );
 }
@@ -19,4 +18,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default FeedScreen;
+export default DiscoverScreen;
