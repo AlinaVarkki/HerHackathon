@@ -62,6 +62,7 @@ const FeedScreen = () => {
                     renderItem={renderCategories}
                     keyExtractor={item => item.id}
                     horizontal={true}
+                    
 
                 />
             </View>
