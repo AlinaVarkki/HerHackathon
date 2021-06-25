@@ -6,12 +6,11 @@ import ActivityCard from "./ActivityCard";
 const Feed = ({children}) => {
     return (
         <ScrollView style = {styles.feedContainer} >
-            <ActivityCard></ActivityCard>
-            <ActivityCard></ActivityCard>
-            <ActivityCard></ActivityCard>
-            <ActivityCard></ActivityCard>
-            <ActivityCard></ActivityCard>
-            <ActivityCard></ActivityCard>
+            <ActivityCard activity={"Hike 100km"} description={"Lorem ipsum.. I have no idea what is this"}></ActivityCard>
+            <ActivityCard activity={"Cycle 100km"} description={"Lorem ipsum.. Activityyyyyyy"}></ActivityCard>
+            <ActivityCard activity={"Have a vegan meal"} description={"Lorem ipsum.. I have no idea what is this"}></ActivityCard>
+            <ActivityCard activity={"Clean a beach"} description={"Lorem ipsum.. I have no idea what is this"}></ActivityCard>
+            <ActivityCard activity={"Hike 100km"} description={"Lorem ipsum.. I have no idea what is this"}></ActivityCard>
         </ScrollView>
     );
 };

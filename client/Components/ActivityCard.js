@@ -3,7 +3,7 @@ import {Text, View, StyleSheet, TouchableWithoutFeedback, Button, Pressable, Ima
 import RoundProfileImage from "./RoundProfileImage";
 
 
-const ActivityCard = ({children}) => {
+const ActivityCard = ({activity, description}) => {
     const {width} = Dimensions.get("screen");
 
     return (
@@ -11,8 +11,8 @@ const ActivityCard = ({children}) => {
             <View style={styles.listing}>
                 <View style={styles.leftSection}>
                     <View style={styles.leftUpper}>
-                        <Text style={styles.textWhite}>Hike 100km</Text>
-                        <Text style={styles.textWhiteLower}>Lorem ipsum.. I have no idea what is this</Text>
+                        <Text style={styles.textWhite}>{activity}</Text>
+                        <Text style={styles.textWhiteLower}>{description}</Text>
                     </View>
                     <View style={styles.leftLower}>
                         <RoundProfileImage image={require('../resources/images/1200px-React-icon.svg.png')}/>
