@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 import activitiesApi from "../client/api/activitiesApi";
-import Screen from "./Components/Screen";
+// import Screen from "./Components/Screen";
 
 export default function App() {
 
@@ -15,7 +15,7 @@ export default function App() {
     // }
 
   const onPressLearnMore = async() => {
-    console.log("yesnow");
+    console.log("yesnoww");
     await activitiesApi.getActivities().then(r => {
       console.log(r.data);
       // updateText()
@@ -24,7 +24,9 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Screen/>
+        <Text>hey</Text>
+        <Text>hey</Text>
+      {/*<Screen/>*/}
     </View>
   );
 }
