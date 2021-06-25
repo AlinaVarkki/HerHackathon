@@ -38,15 +38,10 @@ const MainScreen = () => {
         }
     }
 
-    const callback = () => {
-
-    }
-
     return (
         <SafeAreaView style={styles.screen}>
             <ScrollView style={styles.main}>
                 {content()}
-                {/*<Text style={{color:'white'}}>hi</Text>*/}
             </ScrollView>
             <View style={styles.bottom}>
                 <View style={styles.row}>

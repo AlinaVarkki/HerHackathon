@@ -1,7 +1,5 @@
 import React from 'react';
 import {StyleSheet, View, Text} from "react-native";
-import Screen from "../Components/Screen";
-import {useNavigation} from "@react-navigation/native";
 
 const ProfilePageScreen = () => {
 
