@@ -14,7 +14,6 @@ const CompanyStats = () => {
 
         </View>
     );
-
 }
 
 const styles = StyleSheet.create({
