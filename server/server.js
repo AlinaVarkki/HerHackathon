@@ -71,7 +71,7 @@ app.post('/getActivities', (req, res) => {
     let activities = []
 
     const request = new Request(
-        `SELECT * FROM [dbo].[Activities] `,
+        `SELECT * FROM [dbo].[Challenges] `,
         (err, rowCount) => {
             if (err) {
                 console.error(err.message);
