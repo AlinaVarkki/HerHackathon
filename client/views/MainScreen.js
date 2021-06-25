@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     screen: {
         height: '100%',
         flex: 1,
-        paddingTop:50,
+        paddingTop:30,
         backgroundColor: 'black'
     },
     main: {
