@@ -1,9 +1,11 @@
 import React from 'react';
-import {Text, View, StyleSheet, TouchableWithoutFeedback, Button, Pressable, Image} from 'react-native';
+import {Text, View, StyleSheet, TouchableWithoutFeedback, Button, Pressable, Image, Dimensions} from 'react-native';
 import RoundProfileImage from "./RoundProfileImage";
 
 
 const ActivityCard = ({children}) => {
+    const {width} = Dimensions.get("screen");
+
     return (
         <TouchableWithoutFeedback>
             <View style={styles.listing}>
