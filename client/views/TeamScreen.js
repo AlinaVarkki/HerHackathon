@@ -11,11 +11,17 @@ import CompletedChallenge from "../Components/CompletedChallenge";
 
 const TeamScreen = () => {
 
-    let images1 = [require('../resources/images/1200px-React-icon.svg.png'), require('../resources/images/sketch1.png'), require('../Assets/tempProfilePic.png'), require('../Assets/icon.png'), require('../resources/images/1200px-React-icon.svg.png')]
+    let images1 = [
+        require('../Assets/Avatars/Slavka.png'),
+        require('../Assets/Avatars/Alina.png'),
+        require('../Assets/Avatars/Radina.png'),
+        require('../Assets/Avatars/Sophie.png'),
+        require('../Assets/Avatars/Kathie.png'),
+        ]
 
     return (
         <View style={styles.container}>
-            <Text style={styles.biggerTitle}>Team name</Text>
+            <Text style={styles.biggerTitle}>The Straths</Text>
             <Teammates/>
             <Text style={styles.title}>Statistics</Text>
             <CompanyStats/>

@@ -19,22 +19,22 @@ const Treats = () => {
 
     const treats = [
         {
-            id: 1,
+            id: '1',
             title: "Zero-waste lunch",
             category: "NUTRITION",
             points: 500,
         },{
-            id: 2,
+            id: '2',
             title: "Zero-waste lunch",
             category: "NUTRITION",
             points: 500,
         },{
-            id: 3,
+            id: '3',
             title: "Zero-waste lunch",
             category: "NUTRITION",
             points: 500,
         },{
-            id: 4,
+            id: '4',
             title: "Zero-waste lunch",
             category: "NUTRITION",
             points: 500,

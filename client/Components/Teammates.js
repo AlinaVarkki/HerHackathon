@@ -9,31 +9,24 @@ const Teammates = () => {
 
     const teammates = [
         {   name: 'slavka',
-            photo: require('../Assets/tempProfilePic.png')
+            photo: require('../Assets/Avatars/Slavka.png')
         },
         {   name: 'radina',
-            photo: require('../Assets/tempProfilePic.png')
+            photo: require('../Assets/Avatars/Radina.png')
         },
         {   name: 'alina',
-            photo: require('../Assets/tempProfilePic.png')
+            photo: require('../Assets/Avatars/Alina.png')
         },
         {   name: 'kathie',
-            photo: require('../Assets/tempProfilePic.png')
+            photo: require('../Assets/Avatars/Kathie.png')
         },
         {   name: 'annie',
-            photo: require('../Assets/tempProfilePic.png')
+            photo: require('../Assets/Avatars/Annie.png')
         },
         {   name: 'sophie',
-            photo: require('../Assets/tempProfilePic.png')
+            photo: require('../Assets/Avatars/Sophie.png')
         },
     ];
-
-    const renderPeople = ({item}) => (
-        <View style={styles.photo}>
-            <RoundProfileImage size={squareSize} image={item.photo}/>
-            <Text style={styles.names}>{item.name}</Text>
-        </View>
-    );
 
     return (
         <View style={styles.container}>
@@ -87,6 +80,7 @@ const styles = StyleSheet.create({
             alignItems: 'center',
             justifyContent: 'center',
             width: '100%',
+        paddingVertical: 10,
         }
 });
 
