@@ -5,12 +5,14 @@ import {useNavigation} from "@react-navigation/native";
 
 const FeedScreen = () => {
 
+    const navigation = useNavigation();
+
 
     return (
         <View style={styles.container}>
-            <Screen screen={"feed"}>
+            <View screen={"feed"} nav={navigation}>
                 <Text style={{color: 'white'}}>feed screen</Text>
-            </Screen>
+            </View>
         </View>
     );
 }

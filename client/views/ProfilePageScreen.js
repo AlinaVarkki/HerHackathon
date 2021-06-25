@@ -7,9 +7,9 @@ const ProfilePageScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Screen screen={"profile"}>
+            <View screen={"profile"}>
                 <Text style={{color: 'white'}}>profile screen</Text>
-            </Screen>
+            </View>
         </View>
     );
 }

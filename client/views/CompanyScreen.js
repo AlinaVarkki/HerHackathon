@@ -7,9 +7,9 @@ const CompanyScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Screen screen={"company"}>
+            <View screen={"company"}>
                 <Text style={{color: 'white'}}>company screen</Text>
-            </Screen>
+            </View>
         </View>
     );
 }

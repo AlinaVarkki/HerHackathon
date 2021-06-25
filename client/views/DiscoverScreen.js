@@ -7,9 +7,9 @@ const DiscoverScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Screen screen={"discover"}>
+            <View screen={"discover"}>
                 <Text style={{color: 'white'}}>DiscoverScreen </Text>
-            </Screen>
+            </View>
         </View>
     );
 }

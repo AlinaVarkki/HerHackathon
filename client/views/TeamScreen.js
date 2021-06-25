@@ -8,9 +8,9 @@ const TeamScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Screen screen={"team"}>
+            <View screen={"team"}>
                 <Text style={{color: 'white'}}>team screen</Text>
-            </Screen>
+            </View>
         </View>
     );
 }

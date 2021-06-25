@@ -4,7 +4,7 @@ import BottomMenuButton from "./BottonMenuButton";
 import {useNavigation} from "@react-navigation/native";
 
 
-const BottomMenu = ({callback}) => {
+const BottomMenu = ({nav}) => {
 
     const cb = () => {
       console.log("hi")
