@@ -15,7 +15,7 @@ const SquareBoi = ({title, text, color}) => {
 }
 
 const {width} = Dimensions.get("screen");
-const squareSize = width*0.27;
+const squareSize = width*0.26;
 
 const styles = StyleSheet.create({
     box: {

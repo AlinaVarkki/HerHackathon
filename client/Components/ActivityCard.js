@@ -1,21 +1,32 @@
 import React from 'react';
-import {Text, View, StyleSheet, TouchableWithoutFeedback, Button, Pressable, Image} from 'react-native';
+import {Text, View, StyleSheet, TouchableWithoutFeedback, FlatList, Button, Pressable, Image, Dimensions} from 'react-native';
 import RoundProfileImage from "./RoundProfileImage";
 
 
-const ActivityCard = ({children}) => {
+const ActivityCard = ({activity, description, images}) => {
+
+    const profileRender = ({item}) => (
+        <RoundProfileImage
+            image={item}
+        />
+    )
+
+
     return (
         <TouchableWithoutFeedback>
             <View style={styles.listing}>
                 <View style={styles.leftSection}>
                     <View style={styles.leftUpper}>
-                        <Text style={styles.textWhite}>Hike 100km</Text>
-                        <Text style={styles.textWhiteLower}>Lorem ipsum.. I have no idea what is this</Text>
+                        <Text style={styles.textWhite}>{activity}</Text>
+                        <Text style={styles.textWhiteLower}>{description}</Text>
                     </View>
                     <View style={styles.leftLower}>
-                        <RoundProfileImage image={require('../resources/images/1200px-React-icon.svg.png')}/>
-                        <RoundProfileImage image={require('../resources/images/1200px-React-icon.svg.png')}/>
-                        <RoundProfileImage image={require('../resources/images/1200px-React-icon.svg.png')}/>
+                        <FlatList
+                            data = {images}
+                            keyExtractor={image => image.toString()}
+                            renderItem={profileRender}
+                            horizontal={true}
+                        />
                         <Text style={{color : 'white', fontWeight: 'bold', fontSize: 31}}>/5</Text>
                     </View>
                 </View>
