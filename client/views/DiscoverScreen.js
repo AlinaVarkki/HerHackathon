@@ -1,21 +1,25 @@
 import React from 'react';
-import {StyleSheet, View, Text} from "react-native";
+import {StyleSheet, View, Text,TouchableWithoutFeedback} from "react-native";
 import ColorPalette from "../Assets/ColorPalette";
 import Treat from "../Components/Treat";
 import Treats from "../Components/Treats";
+import InspiringArticle from "../Components/InspiringArticle";
+import ListOfArticles from "../Components/ListOfArticles";
 
 
 const DiscoverScreen = () => {
 
     return (
+        <TouchableWithoutFeedback onPress>
         <View style={styles.container}>
             <Text style={styles.title}>Team treat</Text>
             <Treats/>
 
             <Text style={styles.title}>Get Inspired</Text>
-
+            <ListOfArticles/>
 
         </View>
+        </TouchableWithoutFeedback>
     );
 }
 
