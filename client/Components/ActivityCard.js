@@ -21,7 +21,7 @@ const ActivityCard = ({children}) => {
                 </View>
                 <View style={styles.rightSection}>
                     <View style={styles.rightUpper}>
-                        <Image style={{height: 150, width: 150, overflow: 'visible'}} source={require('../resources/images/sketch1.png')} />
+                        <Image style={{height: 110, width: 110, overflow: 'visible'}} source={require('../resources/images/sketch1.png')} />
                     </View>
                     <View style={styles.rightLower}>
                         <Pressable style={styles.joinButton}>
@@ -81,6 +81,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         overflow: 'visible',
         flexWrap: 'nowrap',
+        justifyContent: 'center',
+
     },
     rightLower: {
         flex: 5,

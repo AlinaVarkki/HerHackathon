@@ -7,6 +7,7 @@ import ProfilePageScreen from "./ProfilePageScreen";
 import TeamScreen from "./TeamScreen";
 import DiscoverScreen from "./DiscoverScreen";
 import BottomMenuButton from "../Components/BottonMenuButton";
+// import BottomMenuButton from "../Components/BottonMenuButton";
 
 
 const MainScreen = () => {
