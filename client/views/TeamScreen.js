@@ -12,6 +12,10 @@ import TeamActivityCard from "../Components/TeamActivityCard";
 
 const TeamScreen = () => {
 
+
+
+
+
     let images1 = [
         require('../Assets/Avatars/Slavka.png'),
         require('../Assets/Avatars/Alina.png'),
@@ -94,9 +98,6 @@ const TeamScreen = () => {
                 )}
                     ListHeaderComponent={headerParts()}
                 ListFooterComponent={<View style={{height: 40}}></View>}
-
-
-
             />
 
 

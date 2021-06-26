@@ -24,6 +24,8 @@ const StickingOutCard = ({activity, images=[], description}) => {
     const [lock, setLock] = useState(false);
     const [buttonEnabled, setButtonEnabled] = useState(true);
 
+    const [animationActive,setAnimationActive] = useState(false);
+
     useEffect(() => {
         if (images.length===0) {
             setButtonText('BE THE FIRST')
@@ -33,7 +35,7 @@ const StickingOutCard = ({activity, images=[], description}) => {
             }
             let set = new Set(images)
             if(set.has(require(`../resources/Avatars/Slavka.png`))) {
-                setButtonText('JOINED')
+                setButtonText('LEAVE')
                 setButtonEnabled(false)
             }
         }
@@ -46,21 +48,36 @@ const StickingOutCard = ({activity, images=[], description}) => {
             activityName: activity,
             user: "Slavka"
         }
-        activitiesApi.addParticipantToChallenge(submission).then(r => {
-        })
 
-        images.push(require(`../resources/Avatars/Slavka.png`))
-        setParticipants(images)
-        setButtonText("JOINED")
+        if(buttonText == "JOIN") {
+            activitiesApi.addParticipantToChallenge(submission).then(r => {
+            })
 
-        console.log("HEAR" + participants.length)
-        if (participants.length > 4) {
-            setBackgroundColor(ColorPalette.orange)
-            setLock(true)
-        } else if (images.length === 1){
-            setBackgroundColor(ColorPalette.darkGreen)
+            images.push(require(`../resources/Avatars/Slavka.png`))
+            setParticipants(images)
+            setButtonText("LEAVE")
+
+            if (participants.length > 3) {
+                setBackgroundColor(ColorPalette.orange)
+                setLock(true)
+                setAnimationActive(true)
+                setTimeout(function () {
+                    setAnimationActive(false)
+                }, 1400);
+
+            }
+            setButtonEnabled(false)
+        } else {
+            console.log("trying to remove");
+            activitiesApi.removeParticipantFromChallenge(submission).then(r => {
+            })
+
+            images.pop()
+            setParticipants(images)
+            setButtonText("JOIN")
+            setBackgroundColor(ColorPalette.darkgrey)
+            setLock(false)
         }
-        setButtonEnabled(false)
     }
 
     const profileRender = ({item}) => (
@@ -75,13 +92,23 @@ const StickingOutCard = ({activity, images=[], description}) => {
     )
 
 
+    if(animationActive) {
+        return (
+            <View style={[{backgroundColor: backgroundColor, alignItems: 'center', justifyContent: 'center',paddingTop: 24}, styles.listing]}>
+                <Image style={{width: 130, height: 130}} source={{
+                    uri: 'https://media.giphy.com/media/NBSn8OcMUaQZVd2yG4/giphy.gif'
+                }}/>
+            </View>
+        )
+    }else {
 
-    return (
-            <View style={[{backgroundColor:backgroundColor}, styles.listing]}>
+
+        return (
+            <View style={[{backgroundColor: backgroundColor}, styles.listing]}>
 
                 <View style={styles.content}>
                     <View style={styles.texts}>
-                        <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'baseline'}}>
+                        <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline'}}>
                             <Text style={styles.textWhite}>{activity}</Text>
                             {lock && <Text style={styles.unlocked}>UNLOCKED</Text>}
                         </View>
@@ -89,7 +116,7 @@ const StickingOutCard = ({activity, images=[], description}) => {
                     </View>
 
                     <View style={styles.image}>
-                        <Image style={{height: width*0.35, width: width*0.35,}}
+                        <Image style={{height: width * 0.35, width: width * 0.35,}}
                                source={require('../resources/images/sketch1.png')}/>
                     </View>
 
@@ -98,27 +125,26 @@ const StickingOutCard = ({activity, images=[], description}) => {
 
                 <View style={styles.bottomPart}>
 
-                    { (images.length!==0) &&
-                        <View style={styles.people}>
-                            <FlatList
-                                data = {images}
-                                keyExtractor={image => image.toString()}
-                                renderItem={profileRender}
-                                horizontal={true}
+                    {(images.length !== 0) &&
+                    <View style={styles.people}>
+                        <FlatList
+                            data={images}
+                            keyExtractor={image => image.toString()}
+                            renderItem={profileRender}
+                            horizontal={true}
 
-                            />
-                            <Text  style={{color: 'white', fontWeight: 'bold', fontSize: 27}}>/5</Text>
-                        </View>
+                        />
+                        <Text style={{color: 'white', fontWeight: 'bold', fontSize: 27}}>/5</Text>
+                    </View>
                     }
 
 
                     <View style={styles.button}>
-                        <Pressable disabled={!buttonEnabled} style={styles.joinButton} onPress={updateParticipant}>
+                        <Pressable style={styles.joinButton} onPress={updateParticipant}>
                             <Text style={styles.buttonText}>{buttonText}</Text>
                         </Pressable>
                     </View>
                 </View>
-
 
 
                 {/*<View style={styles.leftSection}>*/}
@@ -144,7 +170,8 @@ const StickingOutCard = ({activity, images=[], description}) => {
 
             </View>
 
-    );
+        );
+    }
 };
 
 const {width} = Dimensions.get("screen");

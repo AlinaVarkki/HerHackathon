@@ -13,7 +13,7 @@ import activitiesApi from "../api/activitiesApi";
 import ColorPalette from "../Assets/ColorPalette";
 
 
-const ActivityCard = ({activity, description, images, names}) => {
+const ActivityCard = ({activity, description, images }) => {
 
     let images1 = [require('../resources/images/1200px-React-icon.svg.png'), require('../resources/images/sketch1.png'), require('../Assets/tempProfilePic.png')]
 
@@ -23,6 +23,8 @@ const ActivityCard = ({activity, description, images, names}) => {
     const [backgroundColor, setBackgroundColor] = useState(ColorPalette.darkgrey);
     const [lock, setLock] = useState(false);
     const [buttonEnabled, setButtonEnabled] = useState(true);
+
+    const [animationActive,setAnimationActive] = useState(false);
 
     useEffect(() => {
         if (images.length > 4) {
@@ -60,6 +62,11 @@ const ActivityCard = ({activity, description, images, names}) => {
             if (participants.length > 3) {
                 setBackgroundColor(ColorPalette.orange)
                 setLock(true)
+                setAnimationActive(true)
+                setTimeout(function () {
+                    setAnimationActive(false)
+                }, 1400);
+
             }
             setButtonEnabled(false)
         } else {
@@ -75,43 +82,61 @@ const ActivityCard = ({activity, description, images, names}) => {
         }
     }
 
-    return (
-        <SafeAreaView>
-            <View style={[{backgroundColor: backgroundColor}, styles.listing]}>
-                <View style={styles.leftSection}>
-                    { lock &&
-                    <Text style={{color: 'white', paddingLeft: 20, paddingTop: 20, fontSize: 20, fontWeight: 'bold', opacity: 0.8}}>UNLOCKED</Text>
-                    }
-                    <View style={styles.leftUpper}>
-                        <View style={{flexDirection: 'row'}}>
-                            <Text style={styles.textWhite}>{activity}</Text>
-                        </View>
-                        <Text style={styles.textWhiteLower}>{description}</Text>
-                    </View>
-                    <View style={styles.leftLower}>
-                        <FlatList
-                            data={participants}
-                            keyExtractor={image => image.toString()}
-                            renderItem={profileRender}
-                            horizontal={true}
-                        />
-                        <Text style={{color: 'white', fontWeight: 'bold', fontSize: 27}}>/5</Text>
-                    </View>
-                </View>
-                <View style={styles.rightSection}>
-                    <View style={styles.rightUpper}>
-                        <Image style={{height: 110, width: 110, overflow: 'visible'}}
-                               source={require('../resources/images/sketch1.png')}/>
-                    </View>
-                    <View style={styles.rightLower}>
-                        <Pressable style={styles.joinButton} onPress={updateParticipant}>
-                            <Text style={styles.buttonText}>{buttonText}</Text>
-                        </Pressable>
-                    </View>
-                </View>
+    if(animationActive) {
+        return (
+            <View style={[{backgroundColor: backgroundColor, alignItems: 'center', justifyContent: 'center',}, styles.listing]}>
+                <Image style={{width: 130, height: 130}} source={{
+                    uri: 'https://media.giphy.com/media/NBSn8OcMUaQZVd2yG4/giphy.gif'
+                }}/>
             </View>
-        </SafeAreaView>
-    );
+        )
+    }else {
+        return (
+            <SafeAreaView>
+
+                <View style={[{backgroundColor: backgroundColor}, styles.listing]}>
+                    <View style={styles.leftSection}>
+                        {lock &&
+                        <Text style={{
+                            color: 'white',
+                            paddingLeft: 20,
+                            paddingTop: 20,
+                            fontSize: 20,
+                            fontWeight: 'bold',
+                            opacity: 0.8
+                        }}>UNLOCKED</Text>
+                        }
+                        <View style={styles.leftUpper}>
+                            <View style={{flexDirection: 'row'}}>
+                                <Text style={styles.textWhite}>{activity}</Text>
+                            </View>
+                            <Text style={styles.textWhiteLower}>{description}</Text>
+                        </View>
+                        <View style={styles.leftLower}>
+                            <FlatList
+                                data={participants}
+                                keyExtractor={image => image.toString()}
+                                renderItem={profileRender}
+                                horizontal={true}
+                            />
+                            <Text style={{color: 'white', fontWeight: 'bold', fontSize: 27}}>/5</Text>
+                        </View>
+                    </View>
+                    <View style={styles.rightSection}>
+                        <View style={styles.rightUpper}>
+                            <Image style={{height: 110, width: 110, overflow: 'visible'}}
+                                   source={require('../resources/images/sketch1.png')}/>
+                        </View>
+                        <View style={styles.rightLower}>
+                            <Pressable style={styles.joinButton} onPress={updateParticipant}>
+                                <Text style={styles.buttonText}>{buttonText}</Text>
+                            </Pressable>
+                        </View>
+                    </View>
+                </View>
+            </SafeAreaView>
+        );
+    }
 };
 
 const styles = StyleSheet.create({
