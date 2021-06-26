@@ -13,8 +13,8 @@ const CompanyStats = () => {
         <View style={styles.container}>
 
             <SquareBoi title='20' text='completed challenges' color={ColorPalette.orange}/>
-            <SquareBoi title='50' text='something' color={ColorPalette.blue}/>
-            <SquareBoi title='80' text='something else' color={ColorPalette.darkgrey}/>
+            <SquareBoi title='50' text='something' color={ColorPalette.green}/>
+            <SquareBoi title='80' text='something else' color={ColorPalette.blue}/>
 
         </View>
     );

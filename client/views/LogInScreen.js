@@ -37,9 +37,7 @@ const LoginScreen  = () => {
         }
     };
 
-    const goBack = () => {
-        //TODO add this to navigation and set up the back button + change the icon
-    };
+
 
     const emailChange = (input) => {
         onChangeEmail(input);
@@ -58,9 +56,9 @@ const LoginScreen  = () => {
         <View style={styles.container}>
 
             <View>
-                <TouchableWithoutFeedback onPress={goBack}>
-                    <Icon name={'rocket1'} size={30} color={'white'}/>
-                </TouchableWithoutFeedback>
+                {/*<TouchableWithoutFeedback onPress={goBack}>*/}
+                {/*    <Icon name={'rocket1'} size={30} color={'white'}/>*/}
+                {/*</TouchableWithoutFeedback>*/}
 
                 <View style={styles.title}>
                 <Text style={styles.titleText}>Hello, Welcome Back</Text>

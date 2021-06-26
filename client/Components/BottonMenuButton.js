@@ -1,14 +1,15 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {StyleSheet, View,TouchableWithoutFeedback, Text} from "react-native";
+import ColorPalette from "../Assets/ColorPalette";
 
 
-const BottomMenuButton = ({name, callback, text}) => {
+const BottomMenuButton = ({name, callback, text, color}) => {
     return (
         <TouchableWithoutFeedback onPress={callback}>
             <View style={styles.icon} >
-              <Icon name={name} size={30} color={'white'}/>
-              <Text style={{color: 'white', fontSize: 14}}>{text}</Text>
+              <Icon name={name} size={30} color={color}/>
+              <Text style={{color: color, fontSize: 14}}>{text}</Text>
 
             </View>
 

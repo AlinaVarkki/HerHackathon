@@ -7,6 +7,7 @@ import ProfilePageScreen from "./ProfilePageScreen";
 import TeamScreen from "./TeamScreen";
 import DiscoverScreen from "./DiscoverScreen";
 import BottomMenuButton from "../Components/BottonMenuButton";
+import ColorPalette from "../Assets/ColorPalette";
 // import BottomMenuButton from "../Components/BottonMenuButton";
 
 
@@ -46,11 +47,11 @@ const MainScreen = () => {
             </View>
             <View style={styles.bottom}>
                 <View style={styles.row}>
-                    <BottomMenuButton name="rocket1" text="home" callback={()=>changeChosen("FeedScreen")} style={styles.button}/>
-                    <BottomMenuButton name="rocket1" text="team" callback={()=>changeChosen("TeamScreen")} style={styles.button}/>
-                    <BottomMenuButton name="rocket1" text="company" callback={()=>changeChosen("CompanyScreen")} style={styles.button}/>
-                    <BottomMenuButton name="rocket1" text="discover" callback={()=>changeChosen("DiscoverScreen")} style={styles.button}/>
-                    <BottomMenuButton name="rocket1" text="profile" callback={()=>changeChosen("ProfilePageScreen")} style={styles.button}/>
+                    <BottomMenuButton name="rocket1" text="home" callback={()=>changeChosen("FeedScreen")} color={chosen === "FeedScreen" ? ColorPalette.green : ColorPalette.offwhite} style={styles.button}/>
+                    <BottomMenuButton name="rocket1" text="team" callback={()=>changeChosen("TeamScreen")} color={chosen === "TeamScreen" ? ColorPalette.green : ColorPalette.offwhite} style={styles.button}/>
+                    <BottomMenuButton name="rocket1" text="company" callback={()=>changeChosen("CompanyScreen")} color={chosen === "CompanyScreen" ? ColorPalette.green : ColorPalette.offwhite} style={styles.button}/>
+                    <BottomMenuButton name="rocket1" text="discover" callback={()=>changeChosen("DiscoverScreen")} color={chosen === "DiscoverScreen" ? ColorPalette.green : ColorPalette.offwhite} style={styles.button}/>
+                    <BottomMenuButton name="rocket1" text="profile" callback={()=>changeChosen("ProfilePageScreen")} color={chosen === "ProfilePageScreen" ? ColorPalette.green : ColorPalette.offwhite} style={styles.button}/>
                 </View>
             </View>
 

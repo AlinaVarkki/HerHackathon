@@ -9,9 +9,9 @@ const Top3Leaderboard = () => {
       <View style={styles.container}>
 
           <View style={styles.notLeader}>
-              <SquareLeaderboardBoi title='2' photoURL={require('../Assets/tempProfilePic.png')} teamName='The Straths' points='200' color={ColorPalette.blue}/>
+              <SquareLeaderboardBoi title='2' photoURL={require('../Assets/tempProfilePic.png')} teamName='The Straths' points='200' color={ColorPalette.orange}/>
           </View>
-          <SquareLeaderboardBoi title='1' photoURL={require('../Assets/tempProfilePic.png')} teamName='The Straths' points='200' color={ColorPalette.orange}/>
+          <SquareLeaderboardBoi title='1' photoURL={require('../Assets/tempProfilePic.png')} teamName='The Straths' points='200' color={ColorPalette.green}/>
           <View style={styles.notLeader}>
             <SquareLeaderboardBoi title='3' photoURL={require('../Assets/tempProfilePic.png')} teamName='The Straths' points='200' color={ColorPalette.blue} />
           </View>

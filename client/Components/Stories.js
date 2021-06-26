@@ -10,28 +10,28 @@ const Stories = () => {
     const stories = [{
         id: '0',
             title: 'First Item',
-        photo: require('../Assets/tempProfilePic.png')
+        photo: require('../Assets/SquareBoiis/Boi2.png')
     },
     {
         id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
             title: 'Second Item',
-        photo: require('../Assets/tempProfilePic.png')
+        photo: require('../Assets/SquareBoiis/Boi4.png')
 
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29d72',
             title: 'Third Item',
-        photo: require('../Assets/tempProfilePic.png')
+        photo: require('../Assets/SquareBoiis/Boi5.png')
 
     },{
             id: '58694a0f-3da1-471f-bd96-145571e29d7244',
             title: 'Third Item',
-            photo: require('../Assets/tempProfilePic.png')
+            photo: require('../Assets/SquareBoiis/Boi1.png')
 
         },{
             id: '58694a0f-3da1-471f-bd96-145571e29d7442',
             title: 'Third Item',
-            photo: require('../Assets/tempProfilePic.png')
+            photo: require('../Assets/SquareBoiis/Boi2.png')
 
         }];
 

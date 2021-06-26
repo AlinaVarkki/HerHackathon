@@ -4,6 +4,7 @@ import RoundProfileImage from "../Components/RoundProfileImage";
 import SquareBoi from "../Components/SquareBoi";
 import ColorPalette from "../Assets/ColorPalette";
 import Teammate from "../Components/Teammate";
+import EmptyActivityCard from "../Components/EmptyActivityCard";
 
 const ProfilePageScreen = () => {
     const {width} = Dimensions.get("screen");
@@ -16,10 +17,12 @@ const ProfilePageScreen = () => {
                 <Text style={{color: 'white', fontSize: 18, }}>Most proud of: stopped travelling by plane</Text>
             <Text style={{color: 'white', fontSize: 30, fontWeight: 'bold', paddingTop: 40}}>Contribution</Text>
 
+            <EmptyActivityCard activity={"Hike"} description={"blfbalhfluafbhafayfg sdhvaf af fvaf da"} />
+
             <View style={{flexDirection: 'row'}}>
                 <SquareBoi color={ColorPalette.orange} title={"20"} text={"challenges completed"}/>
                 <SquareBoi color={ColorPalette.blue} title={"80%"} text={"team engagement"}/>
-                <SquareBoi color={ColorPalette.darkgrey} title={"5"} text={"consecutive team challenges"}/>
+                <SquareBoi color={ColorPalette.green} title={"5"} text={"consecutive team challenges"}/>
             </View>
 
             <Text style={{color: 'white', fontSize: 30, fontWeight: 'bold', paddingTop: 20, paddingBottom: 10}}>Badges</Text>

@@ -5,12 +5,16 @@ import activitiesApi from "../client/api/activitiesApi";
 
 import MainNavigation from "./Navigation/MainNavigation";
 import FullChallenge from "./views/FullChallenge";
+import LoginScreen from "./views/LogInScreen";
+import OpeningScreen from "./views/OpeningScreen";
 
 export default function App() {
 
   return (
     <MainNavigation/>
     // <FullChallenge/>
+    //   <LoginScreen/>
+    //   <OpeningScreen/>
   );
 }
 
