@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text,TouchableWithoutFeedback} from "react-native";
+import {StyleSheet, View, Text,TouchableWithoutFeedback,ScrollView} from "react-native";
 import ColorPalette from "../Assets/ColorPalette";
 import Treat from "../Components/Treat";
 import Treats from "../Components/Treats";
@@ -9,13 +9,20 @@ import ListOfArticles from "../Components/ListOfArticles";
 
 const DiscoverScreen = () => {
 
+    const headerPart = () => (
+        <View>
+            <Text style={styles.title}>Team treat</Text>
+        <Treats/>
+
+        <Text style={styles.title}>Get Inspired</Text>
+        </View>
+    );
+
     return (
        <View style={styles.container}>
-            <Text style={styles.title}>Team treat</Text>
-            <Treats/>
+           {/*{headerPart()}*/}
 
-            <Text style={styles.title}>Get Inspired</Text>
-            <ListOfArticles/>
+            <ListOfArticles header={headerPart}/>
 
 
         </View>

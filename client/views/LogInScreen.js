@@ -1,5 +1,6 @@
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
+import {StyleSheet} from 'react-native';
 
 
 const LoginScreen  = () => {
@@ -47,7 +48,24 @@ const LoginScreen  = () => {
         }
     };
 
+    return (
+        <View style={styles.container}>
+
+
+        </View>
+    );
+
 
 }
+
+const styles = StyleSheet.create({
+    container: {
+        height: '100%',
+        flex: 1,
+        backgroundColor: 'black',
+        padding:15,
+
+    },
+});
 
 export default LoginScreen;

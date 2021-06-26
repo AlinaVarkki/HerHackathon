@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     upperPart: {
-        flex:1
+        flex:1,
     },
     lowerPart: {
         flex:5

@@ -41,9 +41,9 @@ const MainScreen = () => {
 
     return (
         <SafeAreaView style={styles.screen}>
-            <ScrollView style={styles.main}>
+            <View style={styles.main}>
                 {content()}
-            </ScrollView>
+            </View>
             <View style={styles.bottom}>
                 <View style={styles.row}>
                     <BottomMenuButton name="rocket1" text="home" callback={()=>changeChosen("FeedScreen")} style={styles.button}/>
@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
         flex:1,
         flexDirection: 'row',
         paddingTop: 5,
+        backgroundColor: 'black'
     },
 });
 
