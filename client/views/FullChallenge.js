@@ -7,6 +7,7 @@ import CompanyStats from "../Components/CompanyStats";
 import RoundProfileImage from "../Components/RoundProfileImage";
 import ProgressPart from "../Components/ProgressPart";
 import {useNavigation} from "@react-navigation/native";
+import Stories from "../Components/Stories";
 
 
 
@@ -73,7 +74,7 @@ const FullChallenge = ({route}) => {
                 <Text style={styles.description}>{description}</Text>
 
                 { progress === 100 ?  <ProgressPart title={"Completed"} progress={progress} label={date} color={ColorPalette.green}/> :
-                    <ProgressPart title={""} progress={progress} label={"You're almost there :)"} color={ColorPalette.green}/>
+                    <ProgressPart title={""} progress={progress} label={"...almost there :)"} color={ColorPalette.green}/>
                 }
 
 
@@ -94,9 +95,15 @@ const FullChallenge = ({route}) => {
 
 
 
-                { progress !== 100 && <Text style={styles.subtitle}>Update</Text>}
+                { progress !== 100 &&
+                    <View>
+                        <Text style={styles.subtitle}>Update</Text>
+
+                        <Stories/>
+                    </View>
 
 
+                }
 
 
             </View>

@@ -27,6 +27,8 @@ const CompanyScreen = () => {
 
     return (
         <ScrollView style={styles.container}>
+            <Text style={styles.subtitle}>Celebrate your colleagues' success</Text>
+
             <Stories/>
 
             <Text style={styles.subtitle}>Latest company statistics</Text>
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
     subtitle: {
         color: ColorPalette.offwhite,
         fontFamily: 'Roboto',
-        fontSize: 15,
+        fontSize: 17.5,
         paddingTop: 20,
     }
 });

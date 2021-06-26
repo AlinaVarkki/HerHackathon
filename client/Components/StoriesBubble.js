@@ -29,7 +29,7 @@ const StoriesBubble = ({photo, storyID}) => {
 }
 
 const {width} = Dimensions.get("screen");
-const squareSize = width*0.27;
+const squareSize = width*0.23;
 
 const styles = StyleSheet.create({
     box: {
