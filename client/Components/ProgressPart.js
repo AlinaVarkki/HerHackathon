@@ -13,7 +13,7 @@ const ProgressPart = ({title, progress, label, color = ColorPalette.offwhite}) =
 
             </View>
             <View>
-                <View style={{...styles.barBack, backgroundColor: (color === ColorPalette.offwhite ? ColorPalette.darkgrey : 'black')}}></View>
+                <View style={{...styles.barBack, backgroundColor: (color === ColorPalette.orange ? 'black' : ColorPalette.darkgrey )}}></View>
                 <View style={{...styles.barFront, width: progress+'%', backgroundColor: color}}></View>
             </View>
         </View>

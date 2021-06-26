@@ -1,7 +1,6 @@
 import React from 'react';
 import {Text, View, StyleSheet, TouchableWithoutFeedback, FlatList, Button, Pressable, Image, Dimensions} from 'react-native';
 import RoundProfileImage from "./RoundProfileImage";
-import {ProgressBar} from "react-native-web";
 import ProgressPart from "./ProgressPart";
 import ColorPalette from "../Assets/ColorPalette";
 
