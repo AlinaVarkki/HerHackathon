@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {SafeAreaView, ScrollView, StyleSheet, View, Text, StatusBar} from 'react-native';
+import React, {useState,useEffect} from 'react';
+import {SafeAreaView, ScrollView, StyleSheet, View, Text, StatusBar,} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
 import FeedScreen from "./FeedScreen";
 import CompanyScreen from "./CompanyScreen";
@@ -10,9 +10,16 @@ import BottomMenuButton from "../Components/BottonMenuButton";
 import ColorPalette from "../Assets/ColorPalette";
 
 
-const MainScreen = () => {
+const MainScreen = ({route}) => {
+
+    // let screen = route.params.screen;
 
     const [chosen, changeChosen] = useState("FeedScreen");
+
+    useEffect(()=>{
+        changeChosen('FeedScreen')
+    },[route.params.screen]);
+
 
     const navigation = useNavigation();
 

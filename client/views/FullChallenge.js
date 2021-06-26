@@ -101,7 +101,7 @@ const FullChallenge = ({route}) => {
 
             </View>
             { progress !== 100 &&
-            <TouchableWithoutFeedback >
+            <TouchableWithoutFeedback onPress={()=>navigation.navigate("MainScreen", {screen: Math.random()})}>
                 <View style={styles.button}>
                     <Text style={styles.buttonText}>COMPLETE</Text>
                 </View>

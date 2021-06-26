@@ -17,7 +17,7 @@ const MainNavigation = () => (
          <Stack.Navigator initialRouteName="MainScreen" screenOptions={{headerShown: false}}>
              <Stack.Screen name="LoginScreen" component={LoginScreen}/>
 
-             <Stack.Screen name="MainScreen" component={MainScreen}/>
+             <Stack.Screen name="MainScreen" component={MainScreen} initialParams={{screen:0}}/>
              <Stack.Screen name="StoriesSlides" component={StoriesSlides}/>
              <Stack.Screen name="FullChallenge" component={FullChallenge}/>
 
