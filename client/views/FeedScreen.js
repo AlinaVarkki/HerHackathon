@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     },
     whiteBigText: {
         paddingLeft: 20,
-        paddingTop: 25,
+        // paddingTop: 25,
         color: 'white',
         fontWeight: 'bold',
         fontSize: 30
