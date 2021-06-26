@@ -4,10 +4,12 @@ import {useNavigation} from "@react-navigation/native";
 import Feed from "../Components/Feed";
 import HorizontalMenu from "../Components/HorizontalMenu";
 import ColorPalette from "../Assets/ColorPalette";
+import EmptyFeed from "../Components/EmptyFeed";
 
 const FeedScreen = () => {
 
     const [selected,changeSelected] = useState('1');
+    const [cat,changeCat] = useState("APPROVED");
 
     const items=[
         {
@@ -24,7 +26,7 @@ const FeedScreen = () => {
         },
         {
             id: '4',
-            name: 'ZERO WASTE',
+            name: 'ZERO-WASTE',
 
         },
         {
@@ -32,23 +34,31 @@ const FeedScreen = () => {
             name: 'VOLUNTEER',
         }]
 
+
+
+
     const renderCategories = ({item}) => {
         if (item.id === selected) {
             return (
-                <TouchableWithoutFeedback onPress={() => changeSelected(item.id)}>
+                <TouchableWithoutFeedback onPress={() => switchCats(item)}>
                     <Text style={styles.optionSelected}>{item.name}</Text>
                 </TouchableWithoutFeedback>
             );
 
         } else {
             return (
-                <TouchableWithoutFeedback onPress={() => changeSelected(item.id)}>
+                <TouchableWithoutFeedback onPress={() => switchCats(item)}>
                     <Text style={styles.option}>{item.name}</Text>
                 </TouchableWithoutFeedback>
             )
 
         }
     }
+
+    const switchCats = (item) => {
+        changeSelected(item.id);
+        changeCat(item.name)
+    };
 
 
     return (
@@ -67,7 +77,7 @@ const FeedScreen = () => {
                 />
             </View>
             <View style={styles.lowerPart}>
-                <Feed/>
+                { selected!=='1' ?  <EmptyFeed category={cat}/> : <Feed/> }
             </View>
         </View>
     );
