@@ -17,7 +17,7 @@ const FeedScreen = () => {
         },
         {
             id: '2',
-            name: 'FITNESS',
+            name: 'GROWTH',
         },
         {
             id: '3',
@@ -25,11 +25,15 @@ const FeedScreen = () => {
         },
         {
             id: '4',
+            name: 'FITNESS',
+        },
+        {
+            id: '5',
             name: 'ZERO-WASTE',
 
         },
         {
-            id: '5',
+            id: '6',
             name: 'VOLUNTEER',
         }]
 

@@ -20,7 +20,6 @@ const DiscoverScreen = () => {
 
     return (
        <View style={styles.container}>
-           {/*{headerPart()}*/}
 
             <ListOfArticles header={headerPart}/>
 
