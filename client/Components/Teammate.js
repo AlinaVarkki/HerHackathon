@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     photo: {
         width: squareSize,
         height: squareSize,
+        borderRadius: 20,
     }
 });
 

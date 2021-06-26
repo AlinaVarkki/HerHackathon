@@ -1,26 +1,30 @@
 import React from 'react';
-import {StyleSheet, View, Dimensions, Text, Image,TouchableWithoutFeedback} from "react-native";
+import {StyleSheet, View, Dimensions, Text, Image, TouchableWithoutFeedback, Linking} from "react-native";
 import ColorPalette from "../Assets/ColorPalette";
 
-const Treat = ({title, category, points}) => {
+const Treat = ({title, category, points, photo}) => {
 
     return (
         <View style={{...styles.box}}>
-            <View>
-            <Text style={styles.category}>{category}</Text>
-
-            <Text style={styles.title}>{title}</Text>
-
-
+            <View style={styles.background}>
+                <Image style={styles.background} source={photo}/>
             </View>
-            <View>
-                <Text style={styles.points}>{points} points</Text>
-                <TouchableWithoutFeedback>
-                    <View style={styles.button}>
-                    <Text style={styles.buttonText}>get</Text>
-                    </View>
-                </TouchableWithoutFeedback>
-            </View>
+            {/*<View style={styles.foreground}>*/}
+                <Text style={styles.category}>{category}</Text>
+
+                <Text style={styles.title}>{title}</Text>
+
+
+
+                <View>
+                    <Text style={styles.points}>{points} points</Text>
+                    <TouchableWithoutFeedback onPress={()=>Linking.openURL("https://www.youtube.com/watch?v=VgojnNgmgVs")}>
+                        <View style={styles.button}>
+                        <Text style={styles.buttonText}>get</Text>
+                        </View>
+                    </TouchableWithoutFeedback>
+                </View>
+            {/*</View>*/}
 
         </View>
 
@@ -42,6 +46,17 @@ const styles = StyleSheet.create({
         padding: 5,
         paddingVertical: 15,
         backgroundColor: ColorPalette.orange
+
+    },
+    background: {
+        width: width*0.37,
+        height: width*0.47,
+        borderRadius: 20,
+        position: 'absolute',
+        overflow: 'hidden'
+
+    },
+    foreground:{
 
     },
     category:{

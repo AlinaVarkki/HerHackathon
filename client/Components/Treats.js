@@ -8,24 +8,33 @@ import Treat from "./Treat";
 
 const Treats = () => {
 
+    const backgrounds = [
+        require('../Assets/SquareBoiis/Boi1.png'),
+        require('../Assets/SquareBoiis/Boi2.png'),
+        require('../Assets/SquareBoiis/Boi4.png'),
+        require('../Assets/SquareBoiis/Boi5.png'),
+        require('../Assets/SquareBoiis/Boi6.png'),
+        require('../Assets/SquareBoiis/Boi7.png')
+    ]
+
     const treats = [
         {
-            id: 1,
+            id: '1',
             title: "Zero-waste lunch",
             category: "NUTRITION",
             points: 500,
         },{
-            id: 2,
+            id: '2',
             title: "Zero-waste lunch",
             category: "NUTRITION",
             points: 500,
         },{
-            id: 3,
+            id: '3',
             title: "Zero-waste lunch",
             category: "NUTRITION",
             points: 500,
         },{
-            id: 4,
+            id: '4',
             title: "Zero-waste lunch",
             category: "NUTRITION",
             points: 500,
@@ -34,7 +43,7 @@ const Treats = () => {
     ];
 
     const renderTreat = ({item}) => (
-        <Treat category={item.category} title={item.title} points={item.points}/>
+        <Treat category={item.category} title={item.title} points={item.points} photo={backgrounds[Math.floor(Math.random() * backgrounds.length)]}/>
 
     );
 
