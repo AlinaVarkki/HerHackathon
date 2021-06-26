@@ -3,22 +3,11 @@ import {StyleSheet, View, Text, Dimensions, ScrollView} from "react-native";
 import RoundProfileImage from "../Components/RoundProfileImage";
 import SquareBoi from "../Components/SquareBoi";
 import ColorPalette from "../Assets/ColorPalette";
-import Teammate from "../Components/Teammate";
-import StickingOutCard from "../Components/StickingOutCard";
+
 
 const ProfilePageScreen = () => {
     const {width} = Dimensions.get("screen");
-    let images = [
-        require('../Assets/Avatars/Alina.png'),
-        require('../Assets/Avatars/Radina.png'),
-        require('../Assets/Avatars/Sophie.png'),
-        require('../Assets/Avatars/Kathie.png'),
-    ]
-    let images2 = [
-        require('../Assets/Avatars/Alina.png'),
-        require('../Assets/Avatars/Sophie.png'),
-        require('../Assets/Avatars/Kathie.png'),
-    ]
+
     return (
         <ScrollView style={styles.container}>
                 <RoundProfileImage image={require('../Assets/Avatars/Slavka.png')} size={110} borderRadium={40}/>
@@ -27,11 +16,6 @@ const ProfilePageScreen = () => {
                 <Text style={{color: 'white', fontSize: 18, paddingTop: 25}}>A zero-waste enthusiast and an active cyclist. On the weekends, you can find me in the mountains. </Text>
                 <Text style={{color: 'white', fontSize: 18, }}>Most proud of: stopped travelling by plane</Text>
             <Text style={{color: 'white', fontSize: 30, fontWeight: 'bold', paddingTop: 40}}>Contribution</Text>
-
-            <StickingOutCard activity={"Hike"} images={images} description={"blfbalhfluafbhafayfjreafgre frf aehkfe g arhg aekf  ge eg qfg sdhvaf af fvaf da"} />
-            <StickingOutCard activity={"Hike"} description={"blfbalhfluafbhafayfjreafgre frf aehkfe g arhg aekf  ge eg qfg sdhvaf af fvaf da"} />
-            <StickingOutCard activity={"Hike"} images={images2} description={"blfbalhfluafbhafayfjreafgre frf aehkfe g arhg aekf  ge eg qfg sdhvaf af fvaf da"} />
-
 
             <View style={{flexDirection: 'row'}}>
                 <SquareBoi color={ColorPalette.orange} title={"20"} text={"challenges completed"}/>
