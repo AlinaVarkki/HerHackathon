@@ -8,4 +8,8 @@ const addParticipantToChallenge = (data) => {
     return client.post("/addParticipantToChallenge", data);
 }
 
-export default { getActivities, addParticipantToChallenge }
+const removeParticipantFromChallenge = (data) => {
+    return client.post("/removeParticipantFromChallenge", data);
+}
+
+export default { getActivities, addParticipantToChallenge, removeParticipantFromChallenge }
