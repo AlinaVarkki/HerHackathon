@@ -149,3 +149,57 @@ app.post('/addParticipantToChallenge', (req, res) => {
     //update info with new list of signed up people
 
 })
+
+
+
+app.post('/removeParticipantFromChallenge', (req, res) => {
+
+    const activityName = req.fields.activityName
+    const user = req.fields.user
+
+    console.log("to remove " + activityName);
+    console.log("to remove " + user);
+    //get info of current challenge
+    //get participants and add Slavka
+
+    const request1 = new Request(
+        `SELECT Participants FROM [dbo].[Challenges] WHERE ActivityName LIKE '${ activityName }' `,
+        (err, rowCount) => {
+            if (err) {
+                console.error(err.message);
+            } else {
+                console.log(`${rowCount} row(s) returned`);
+            }
+        }
+    );
+
+    let participants = ""
+    request1.on("row", columns => {
+        columns.forEach(column => {
+            let users = column.value.split(" ")
+            for(let i = 0; i < users.length; i++) {
+                if(users[i] != user) participants = participants + users[i] + " "
+            }
+        });
+    });
+
+    connection.execSql(request1);
+
+    request1.on('requestCompleted', function () {
+        // Next SQL statement.
+        const request2 = new Request(
+            `UPDATE [dbo].[Challenges] SET Participants = '${ participants }' WHERE ActivityName LIKE '${ activityName }'`,
+            (err, rowCount) => {
+                if (err) {
+                    console.error(err.message);
+                } else {
+                    console.log("OMG IT WORKED 2")
+                }
+            }
+        );
+
+        connection.execSql(request2);
+    });
+    //update info with new list of signed up people
+
+})

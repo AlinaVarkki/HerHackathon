@@ -23,15 +23,14 @@ const ActivityCard = ({activity, description, images, names}) => {
     const [backgroundColor, setBackgroundColor] = useState(ColorPalette.darkgrey);
     const [lock, setLock] = useState(false);
     const [buttonEnabled, setButtonEnabled] = useState(true);
+
     useEffect(() => {
         if (images.length > 4) {
             setBackgroundColor(ColorPalette.orange)
-
-
         }
         let set = new Set(images)
         if(set.has(require(`../resources/Avatars/Slavka.png`))) {
-            setButtonText('JOINED')
+            setButtonText('LEAVE')
             setButtonEnabled(false)
         }
     }, []);
@@ -49,19 +48,31 @@ const ActivityCard = ({activity, description, images, names}) => {
             activityName: activity,
             user: "Slavka"
         }
-        activitiesApi.addParticipantToChallenge(submission).then(r => {
-        })
 
-        images.push(require(`../resources/Avatars/Slavka.png`))
-        setParticipants(images)
-        setButtonText("JOINED")
+        if(buttonText == "JOIN") {
+            activitiesApi.addParticipantToChallenge(submission).then(r => {
+            })
 
-        console.log("HEAR" + participants.length)
-        if (participants.length > 3) {
-            setBackgroundColor(ColorPalette.orange)
-            setLock(true)
+            images.push(require(`../resources/Avatars/Slavka.png`))
+            setParticipants(images)
+            setButtonText("LEAVE")
+
+            if (participants.length > 3) {
+                setBackgroundColor(ColorPalette.orange)
+                setLock(true)
+            }
+            setButtonEnabled(false)
+        } else {
+            console.log("trying to remove");
+            activitiesApi.removeParticipantFromChallenge(submission).then(r => {
+            })
+
+            images.pop()
+            setParticipants(images)
+            setButtonText("JOIN")
+            setBackgroundColor(ColorPalette.darkgrey)
+            setLock(false)
         }
-        setButtonEnabled(false)
     }
 
     return (
@@ -93,7 +104,7 @@ const ActivityCard = ({activity, description, images, names}) => {
                                source={require('../resources/images/sketch1.png')}/>
                     </View>
                     <View style={styles.rightLower}>
-                        <Pressable disabled={!buttonEnabled} style={styles.joinButton} onPress={updateParticipant}>
+                        <Pressable style={styles.joinButton} onPress={updateParticipant}>
                             <Text style={styles.buttonText}>{buttonText}</Text>
                         </Pressable>
                     </View>
