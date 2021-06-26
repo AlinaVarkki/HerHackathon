@@ -62,11 +62,13 @@ const Feed = ({children}) => {
 
     return (
 
+        // <View style={{paddingBottom: 40}}>
         <FlatList style = {{flex: 1}} showsVerticalScrollIndicator={false}
                   data = {activities}
                   keyExtractor = {item => item.id.toString()}
                   renderItem={activityRender}
         />
+        // </View>
 
     );
 };

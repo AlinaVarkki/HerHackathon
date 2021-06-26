@@ -77,7 +77,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         height: '100%',
-        backgroundColor: 'black'
+        width:'100%',
+        backgroundColor: 'black',
+
     },
     whiteBigText: {
         paddingLeft: 20,
@@ -94,10 +96,10 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     upperPart: {
-        flex:1,
+
     },
     lowerPart: {
-        flex:5
+        flex:1,
     },
     option: {
         color: 'white',
