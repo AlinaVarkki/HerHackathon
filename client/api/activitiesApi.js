@@ -4,4 +4,8 @@ const getActivities = () => {
     return client.post("/getActivities");
 };
 
-export default { getActivities }
+const addParticipantToChallenge = (data) => {
+    return client.post("/addParticipantToChallenge", data);
+}
+
+export default { getActivities, addParticipantToChallenge }

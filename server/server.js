@@ -99,3 +99,47 @@ app.post('/getActivities', (req, res) => {
 
     connection.execSql(request);
 })
+
+app.post('/addParticipantToChallenge', (req, res) => {
+
+    console.log("trying")
+    const activityName = req.fields.activityName
+    const user = req.fields.user
+
+    //get info of current challenge
+    //get participants and add Slavka
+
+    const request1 = new Request(
+        `SELECT Participants FROM [dbo].[Challenges] WHERE ActivityName LIKE ( 'Cycling' )`,
+        (err, rowCount) => {
+            if (err) {
+                console.error(err.message);
+            } else {
+                console.log(`${rowCount} row(s) returned`);
+            }
+        }
+    );
+
+    let participants = ""
+    request1.on("row", columns => {
+        columns.forEach(column => {
+            console.log(column.value);
+            participants = column.value + " " + user;
+        });
+    });
+
+    connection.execSql(request1);
+
+
+    //update info with new list of signed up people
+
+    //
+    // const request = new Request(
+    //     `INSERT INTO [dbo].[Challenges](Participants) VALUES ('') WHERE ActivityName LIKE ('Cycling')`,
+    //     (err, rowCount) => {
+    //         if (err) {
+    //             console.error(err.message);
+    //         }
+    //     }
+    // );
+})

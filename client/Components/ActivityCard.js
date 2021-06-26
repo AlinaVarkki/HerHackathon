@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Text, View, StyleSheet, TouchableWithoutFeedback, FlatList, Button, Pressable, Image, Dimensions} from 'react-native';
 import RoundProfileImage from "./RoundProfileImage";
+import activitiesApi from "../api/activitiesApi";
 
 
 const ActivityCard = ({activity, description, images}) => {
@@ -15,8 +16,18 @@ const ActivityCard = ({activity, description, images}) => {
         />
     )
 
+    //when pressed Join add Slavka to challenges participants
+
     const updateParticipant = () => {
-        setParticipants(images1)
+        let submission = {
+            activityName: activity,
+            user: "Slavka"
+        }
+        activitiesApi.addParticipantToChallenge(submission).then(r => {
+        })
+
+        images.push(require(`../resources/Avatars/Slavka.png`))
+        setParticipants(images)
     }
 
     return (
