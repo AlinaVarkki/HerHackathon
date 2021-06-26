@@ -6,8 +6,9 @@ import ColorPalette from "../Assets/ColorPalette";
 
 
 const LoginScreen  = () => {
-    // const navigation = useNavigation();
+    const navigation = useNavigation();
 
+    const demoUser = {username: 'slavka',pass:'1234'}
 
     const [email, onChangeEmail] = useState(null);
     const [password, onChangePassword] = useState(null);
@@ -17,13 +18,21 @@ const LoginScreen  = () => {
     const loginCheck = () => {
         console.log(email);
         console.log(password);
-        if (email == null || password == null) {
+        if (email == null || password == null || email == "" || password == "") {
 
-            alert('All fields need to be filled out.');
+            changeErrorMessage('All fields need to be filled out.');
         } else {
             //TODO: get the data from database to check against
             //TODO: figure out how we're getting data from the database
             //TODO: check whether the entry was correct
+
+            if (email !== demoUser.username) {
+                changeErrorMessage('User does not exist.');
+            } else if (password !== demoUser.pass) {
+                changeErrorMessage('Incorrect password.');
+            } else {
+                navigation.navigate("MainScreen");
+            }
 
         }
     };
@@ -33,11 +42,14 @@ const LoginScreen  = () => {
     };
 
     const emailChange = (input) => {
+        onChangeEmail(input);
+        changeErrorMessage('');
 
     }
 
     const passwordChange = (input) => {
-
+        onChangePassword(input);
+        changeErrorMessage('');
     }
 
 
@@ -62,10 +74,9 @@ const LoginScreen  = () => {
                     style={styles.inputField}
                     onChangeText={emailChange}
                     value={email}
-                    placeholder="Email"
+                    placeholder="Username"
                     placeholderTextColor={ColorPalette.offwhite}
-                    keyboardType={'email-address'}
-                    autoCompleteType={'email'}
+                    autoCompleteType={'username'}
                 />
                 </View>
                 <View style={styles.inputBox}>
@@ -73,7 +84,7 @@ const LoginScreen  = () => {
 
                 <TextInput
                     style={styles.inputField}
-                    onChangeText={onChangePassword}
+                    onChangeText={passwordChange}
                     value={password}
                     placeholder="Password"
                     placeholderTextColor={ColorPalette.offwhite}
@@ -162,8 +173,10 @@ const styles = StyleSheet.create({
     },
     error: {
         color:ColorPalette.orange,
-        fontSize:15,
-        fontStyle:'italic'
+        fontSize:17,
+        fontStyle:'italic',
+        textAlign:'center',
+        paddingBottom:5
     }
 });
 
