@@ -10,9 +10,7 @@ const BottomMenuButton = ({name, callback, text, color}) => {
             <View style={styles.icon} >
               <Icon name={name} size={30} color={color}/>
               <Text style={{color: color, fontSize: 14}}>{text}</Text>
-
             </View>
-
         </TouchableWithoutFeedback>
     );
 }

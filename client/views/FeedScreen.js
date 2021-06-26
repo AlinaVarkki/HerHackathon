@@ -9,6 +9,7 @@ const FeedScreen = () => {
 
     const [selected,changeSelected] = useState('1');
 
+
     const items=[
         {
             id: '1',
@@ -51,26 +52,28 @@ const FeedScreen = () => {
     }
 
 
-    return (
-        <View style={styles.container}>
-            <View style={styles.upperPart}>
-                <Text style={styles.whiteBigText}>Hello Slavka</Text>
-                <Text style={styles.whiteText}>Pick your next challenge </Text>
+        return (
+            <View style={styles.container}>
+                <View style={styles.upperPart}>
+                    <Text style={styles.whiteBigText}>Hello Slavka</Text>
+                    <Text style={styles.whiteText}>Pick your next challenge </Text>
 
-                <FlatList
-                    data={items}
-                    renderItem={renderCategories}
-                    keyExtractor={item => item.id}
-                    horizontal={true}
-                    style={{paddingLeft:10}}
+                    <FlatList
+                        data={items}
+                        renderItem={renderCategories}
+                        keyExtractor={item => item.id}
+                        horizontal={true}
+                        style={{paddingLeft:10}}
 
-                />
+                    />
+                </View>
+                <View style={styles.lowerPart}>
+                    <Feed/>
+                </View>
             </View>
-            <View style={styles.lowerPart}>
-                <Feed/>
-            </View>
-        </View>
-    );
+        );
+
+
 }
 
 const styles = StyleSheet.create({
