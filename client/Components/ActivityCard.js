@@ -1,5 +1,16 @@
 import React, {useState} from 'react';
-import {Text, View, StyleSheet, TouchableWithoutFeedback, FlatList, Button, Pressable, Image, Dimensions} from 'react-native';
+import {
+    Text,
+    View,
+    StyleSheet,
+    TouchableWithoutFeedback,
+    FlatList,
+    Button,
+    Pressable,
+    Image,
+    Dimensions,
+    SafeAreaView
+} from 'react-native';
 import RoundProfileImage from "./RoundProfileImage";
 import activitiesApi from "../api/activitiesApi";
 
@@ -9,6 +20,7 @@ const ActivityCard = ({activity, description, images}) => {
     let images1 = [require('../resources/images/1200px-React-icon.svg.png'), require('../resources/images/sketch1.png'), require('../Assets/tempProfilePic.png')]
 
     const[participants, setParticipants] = useState(images);
+    const[buttonText, setButtonText] = useState("JOIN");
 
     const profileRender = ({item}) => (
         <RoundProfileImage
@@ -28,10 +40,11 @@ const ActivityCard = ({activity, description, images}) => {
 
         images.push(require(`../resources/Avatars/Slavka.png`))
         setParticipants(images)
+        setButtonText("LEAVE")
     }
 
     return (
-        <TouchableWithoutFeedback>
+        <SafeAreaView>
             <View style={styles.listing}>
                 <View style={styles.leftSection}>
                     <View style={styles.leftUpper}>
@@ -54,12 +67,12 @@ const ActivityCard = ({activity, description, images}) => {
                     </View>
                     <View style={styles.rightLower}>
                         <Pressable style={styles.joinButton} onPress={updateParticipant}>
-                            <Text style={styles.buttonText}>JOIN</Text>
+                            <Text style={styles.buttonText}>{buttonText}</Text>
                         </Pressable>
                     </View>
                 </View>
             </View>
-        </TouchableWithoutFeedback>
+        </SafeAreaView>
     );
 };
 

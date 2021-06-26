@@ -110,7 +110,7 @@ app.post('/addParticipantToChallenge', (req, res) => {
     //get participants and add Slavka
 
     const request1 = new Request(
-        `SELECT Participants FROM [dbo].[Challenges] WHERE ActivityName LIKE ( 'Cycling' )`,
+        `SELECT Participants FROM [dbo].[Challenges] WHERE ActivityName LIKE '${ activityName }' `,
         (err, rowCount) => {
             if (err) {
                 console.error(err.message);
@@ -125,21 +125,27 @@ app.post('/addParticipantToChallenge', (req, res) => {
         columns.forEach(column => {
             console.log(column.value);
             participants = column.value + " " + user;
+            console.log(participants)
         });
     });
 
     connection.execSql(request1);
 
+    request1.on('requestCompleted', function () {
+        // Next SQL statement.
+        const request2 = new Request(
+            `UPDATE [dbo].[Challenges] SET Participants = '${ participants }' WHERE ActivityName LIKE '${ activityName }'`,
+            (err, rowCount) => {
+                if (err) {
+                    console.error(err.message);
+                } else {
+                    console.log("OMG IT WORKED")
+                }
+            }
+        );
 
+        connection.execSql(request2);
+    });
     //update info with new list of signed up people
 
-    //
-    // const request = new Request(
-    //     `INSERT INTO [dbo].[Challenges](Participants) VALUES ('') WHERE ActivityName LIKE ('Cycling')`,
-    //     (err, rowCount) => {
-    //         if (err) {
-    //             console.error(err.message);
-    //         }
-    //     }
-    // );
 })
