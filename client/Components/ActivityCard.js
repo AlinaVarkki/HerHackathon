@@ -13,21 +13,28 @@ import activitiesApi from "../api/activitiesApi";
 import ColorPalette from "../Assets/ColorPalette";
 
 
-const ActivityCard = ({activity, description, images}) => {
+const ActivityCard = ({activity, description, images, names}) => {
 
     let images1 = [require('../resources/images/1200px-React-icon.svg.png'), require('../resources/images/sketch1.png'), require('../Assets/tempProfilePic.png')]
 
+    const [buttonText, setButtonText] = useState("JOIN");
+
+    const [participants, setParticipants] = useState(images);
+    const [backgroundColor, setBackgroundColor] = useState(ColorPalette.darkgrey);
+    const [lock, setLock] = useState(false);
+    const [buttonEnabled, setButtonEnabled] = useState(true);
     useEffect(() => {
         if (images.length > 4) {
             setBackgroundColor(ColorPalette.orange)
-            setLock(true)
+
+
+        }
+        let set = new Set(images)
+        if(set.has(require(`../resources/Avatars/Slavka.png`))) {
+            setButtonText('JOINED')
+            setButtonEnabled(false)
         }
     }, []);
-
-    const [participants, setParticipants] = useState(images);
-    const [buttonText, setButtonText] = useState("JOIN");
-    const [backgroundColor, setBackgroundColor] = useState(ColorPalette.darkgrey);
-    const [lock, setLock] = useState(false);
 
     const profileRender = ({item}) => (
         <RoundProfileImage
@@ -47,13 +54,14 @@ const ActivityCard = ({activity, description, images}) => {
 
         images.push(require(`../resources/Avatars/Slavka.png`))
         setParticipants(images)
-        setButtonText("LEAVE")
+        setButtonText("JOINED")
 
         console.log("HEAR" + participants.length)
         if (participants.length > 3) {
             setBackgroundColor(ColorPalette.orange)
             setLock(true)
         }
+        setButtonEnabled(false)
     }
 
     return (
@@ -85,7 +93,7 @@ const ActivityCard = ({activity, description, images}) => {
                                source={require('../resources/images/sketch1.png')}/>
                     </View>
                     <View style={styles.rightLower}>
-                        <Pressable style={styles.joinButton} onPress={updateParticipant}>
+                        <Pressable disabled={!buttonEnabled} style={styles.joinButton} onPress={updateParticipant}>
                             <Text style={styles.buttonText}>{buttonText}</Text>
                         </Pressable>
                     </View>
