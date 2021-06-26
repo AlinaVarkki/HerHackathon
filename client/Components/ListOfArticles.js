@@ -5,34 +5,34 @@ import InspiringArticle from "./InspiringArticle";
 import {color} from "react-native-reanimated";
 import Treat from "./Treat";
 
-const ListOfArticles = () => {
+const ListOfArticles = ({header}) => {
 
     const colors = [ColorPalette.orange, ColorPalette.blue, ColorPalette.darkgrey];
 
     const articles = [
         {
-            id:1,
+            id:'1',
           title: "Something Inspiring Like for Real",
           category:   "ZERO-WASTE",
             url:"https://www.youtube.com/watch?v=VgojnNgmgVs",
             color:colors[Math.floor(Math.random() * colors.length)]
         },
         {
-            id:2,
+            id:'2',
             title: "Something Inspiring Like for Real",
             category:   "ZERO-WASTE",
             url:"https://www.youtube.com/watch?v=VgojnNgmgVs",
             color:colors[Math.floor(Math.random() * colors.length)]
         },
         {
-            id:3,
+            id:'3',
             title: "Something Inspiring Like for Real",
             category:   "ZERO-WASTE",
             url:"https://www.youtube.com/watch?v=VgojnNgmgVs",
             color:colors[Math.floor(Math.random() * colors.length)]
         },
         {
-            id:4,
+            id:'4',
             title: "Something Inspiring Like for Real",
             category:   "ZERO-WASTE",
             url:"https://www.youtube.com/watch?v=VgojnNgmgVs",
@@ -51,6 +51,7 @@ const ListOfArticles = () => {
                 data={articles}
                 renderItem={renderArticle}
                 keyExtractor={item => item.id}
+                ListHeaderComponent={header}
 
             />
 

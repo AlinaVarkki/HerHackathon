@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text} from "react-native";
+import {StyleSheet, View, Text, ScrollView} from "react-native";
 import SquareBoi from "../Components/SquareBoi";
 import Top3Leaderboard from "../Components/Top3Leaderboard";
 import CompanyStats from "../Components/CompanyStats";
@@ -11,7 +11,7 @@ import Stories from "../Components/Stories";
 const CompanyScreen = () => {
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Stories/>
 
             <Text style={styles.subtitle}>Latest company statistics</Text>
@@ -21,7 +21,7 @@ const CompanyScreen = () => {
             <Top3Leaderboard/>
             <RestLeaderboard/>
 
-        </View>
+        </ScrollView>
     );
 }
 

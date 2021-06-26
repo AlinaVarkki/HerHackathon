@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Dimensions} from "react-native";
+import {StyleSheet, View, Text, Dimensions, ScrollView} from "react-native";
 import RoundProfileImage from "../Components/RoundProfileImage";
 import SquareBoi from "../Components/SquareBoi";
 import ColorPalette from "../Assets/ColorPalette";
@@ -8,7 +8,7 @@ import Teammate from "../Components/Teammate";
 const ProfilePageScreen = () => {
     const {width} = Dimensions.get("screen");
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
                 <RoundProfileImage image={require('../Assets/Avatars/Slavka.png')} size={110} borderRadium={40}/>
                 <Text style={{color: 'white', fontSize: 40, fontWeight: 'bold', paddingTop: 10}}>Slavka Borovska</Text>
                 <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}>@slavkabo</Text>
@@ -40,7 +40,7 @@ const ProfilePageScreen = () => {
                     <Text style={styles.badgeText}>Protector</Text>
                 </View>
             </View>
-        </View>
+        </ScrollView>
     );
 }
 
