@@ -2,46 +2,40 @@ import React from 'react';
 import {StyleSheet, View, Dimensions, Text,TouchableWithoutFeedback} from "react-native";
 import ColorPalette from "../Assets/ColorPalette";
 import Icon from "react-native-vector-icons/EvilIcons";
+import Icon2 from "react-native-vector-icons/AntDesign";
+
 import * as ImagePicker from 'expo-image-picker';
 
 
 
-const NewStoryAdder = () => {
+const NewStoryAdder = ({handler, type}) => {
 
-    const addStory = () => {
-        console.log("adding a story");
-        captureImage();
 
-    }
 
-    const captureImage = async () => {
-        let options = {
-            mediaTypes: ImagePicker.MediaTypeOptions.Images,
-            quality: 0.5,
-            saveToPhotos: true,
-            storageOptions: {
-                privateDirectory: true,
-            },
-            base64: true,
-        };
-
-        let result = await ImagePicker.launchCameraAsync(options);
-
-        if (!result.cancelled) {
-            const b64 = 'data:image/png;base64,'+result.base64;
-
-        }
-    };
 
 
     return (
-        <TouchableWithoutFeedback onPress={addStory}>
-        <View style={{...styles.box, backgroundColor: ColorPalette.darkgrey}}>
-            <Icon name={'camera'} size={50} color={'white'}/>
+        <TouchableWithoutFeedback onPress={handler}>
 
-            <Text style={styles.plus}>take a photo</Text>
 
-        </View>
+            {type === "upload" ?
+                <View style={{...styles.box, backgroundColor: ColorPalette.darkgrey}}>
+                    <Icon name={'image'} size={50} color={'white'}/>
+
+                    <Text style={styles.plus}>upload a photo</Text>
+                </View>
+            :
+                <View style={{...styles.box, backgroundColor: ColorPalette.darkgrey}}>
+                    <Icon name={'camera'} size={50} color={'white'}/>
+
+                    <Text style={styles.plus}>take a photo</Text>
+                </View>
+
+
+            }
+
+
+
         </TouchableWithoutFeedback>
 
     );
@@ -67,7 +61,7 @@ const styles = StyleSheet.create({
         textAlign:'center',
         // fontWeight: 'bold',
         color: ColorPalette.offwhite,
-        width:'75%',
+        width:'60%',
         lineHeight:13,
         paddingTop:3
     }
