@@ -6,13 +6,19 @@ import Circle from "../Components/Circle";
 import CompanyStats from "../Components/CompanyStats";
 import RoundProfileImage from "../Components/RoundProfileImage";
 import ProgressPart from "../Components/ProgressPart";
+import {useNavigation} from "@react-navigation/native";
 
 
 
-const FullChallenge = () => {
+
+const FullChallenge = ({route}) => {
+
+    const { activity, description, images, progress, date} = route.params;
+
+    const navigation = useNavigation();
 
     const goBack = () => {
-        //TODO add this to navigation and set up the back button + change the icon
+        navigation.goBack();
     };
 
     //TODO switch these for database access
@@ -44,12 +50,12 @@ const FullChallenge = () => {
     return (
         <ScrollView style={styles.container}>
             <TouchableWithoutFeedback onPress={goBack}>
-            <Icon name={'rocket1'} size={30} color={'white'}/>
+            <Icon name={'arrowleft'} size={30} color={'white'}/>
             </TouchableWithoutFeedback>
 
             <View style={styles.content}>
-                <Text style={styles.title}>Hike 100km</Text>
-                <Text style={styles.description}>Lorem ipsum... I have no idea what is this</Text>
+                <Text style={styles.title}>{activity}</Text>
+                <Text style={styles.description}>{description}</Text>
 
                 <ProgressPart title={"Time Left"} progress={80} label={"2 days"} color={ColorPalette.blue}/>
 

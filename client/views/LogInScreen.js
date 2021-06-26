@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {StyleSheet, TouchableWithoutFeedback, View,Text,TextInput} from 'react-native';
 import Icon from "react-native-vector-icons/AntDesign";
+import Icon2 from "react-native-vector-icons/EvilIcons";
+
 import ColorPalette from "../Assets/ColorPalette";
 
 
@@ -56,9 +58,6 @@ const LoginScreen  = () => {
         <View style={styles.container}>
 
             <View>
-                {/*<TouchableWithoutFeedback onPress={goBack}>*/}
-                {/*    <Icon name={'rocket1'} size={30} color={'white'}/>*/}
-                {/*</TouchableWithoutFeedback>*/}
 
                 <View style={styles.title}>
                 <Text style={styles.titleText}>Hello, Welcome Back</Text>
@@ -67,7 +66,7 @@ const LoginScreen  = () => {
 
             <View style={{ paddingBottom:50}}>
                 <View style={styles.inputBox}>
-                    <Icon name={'rocket1'} size={25} color={ColorPalette.offwhite} style={{paddingRight: 30}}/>
+                    <Icon2 name={'user'} size={35} color={ColorPalette.offwhite} style={{paddingRight: 30}}/>
                 <TextInput
                     style={styles.inputField}
                     onChangeText={emailChange}
@@ -78,7 +77,7 @@ const LoginScreen  = () => {
                 />
                 </View>
                 <View style={styles.inputBox}>
-                    <Icon name={'rocket1'} size={25} color={ColorPalette.offwhite} style={{paddingRight: 30}}/>
+                    <Icon2 name={'lock'} size={35} color={ColorPalette.offwhite} style={{paddingRight: 30}}/>
 
                 <TextInput
                     style={styles.inputField}
@@ -132,7 +131,7 @@ const styles = StyleSheet.create({
         height: 60,
         borderRadius: 30,
         margin: 10,
-        paddingHorizontal: 30,
+        paddingHorizontal: 25,
         justifyContent:'flex-start',
         backgroundColor: ColorPalette.darkgrey,
         flexDirection: 'row',

@@ -7,16 +7,20 @@ import {
     Pressable,
     Image,
     SafeAreaView,
-    Dimensions
+    Dimensions,
+    TouchableWithoutFeedback
 } from 'react-native';
 
 import ColorPalette from "../Assets/ColorPalette";
 import RoundProfileImage from "./RoundProfileImage";
 import activitiesApi from "../api/activitiesApi";
 import ProgressPart from "./ProgressPart";
+import {useNavigation} from "@react-navigation/native";
 
 
 const TeamActivityCard = ({activity, description="hello a description belongs here", images, progress, date=""}) => {
+
+    const navigation = useNavigation();
 
     const profileRender = ({item}) => (
 
@@ -29,9 +33,20 @@ const TeamActivityCard = ({activity, description="hello a description belongs he
 
     )
 
+    const openChallenge = () => {
+        const data = {
+            activity:activity,
+            description:description,
+            images: images,
+            progress:progress,
+            date: date}
+        navigation.navigate("FullChallenge", data);
+
+    }
 
 
     return (
+        <TouchableWithoutFeedback onPress={openChallenge}>
         <View style={[{backgroundColor:progress === 100? ColorPalette.darkgrey : ColorPalette.orange}, styles.listing]}>
 
             <View style={styles.content}>
@@ -73,8 +88,10 @@ const TeamActivityCard = ({activity, description="hello a description belongs he
             </View>
 
         </View>
+            </TouchableWithoutFeedback>
 
-    );
+
+            );
 };
 
 const {width} = Dimensions.get("screen");
