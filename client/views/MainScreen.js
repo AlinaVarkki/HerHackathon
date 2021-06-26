@@ -46,10 +46,10 @@ const MainScreen = () => {
             </View>
             <View style={styles.bottom}>
                 <View style={styles.row}>
-                    <BottomMenuButton font="Feather" name="menu" text="home" callback={()=>changeChosen("FeedScreen")} color={chosen === "FeedScreen" ? ColorPalette.green : ColorPalette.offwhite} style={styles.button}/>
+                    <BottomMenuButton font="Logo" name="menu" text="home" callback={()=>changeChosen("FeedScreen")} color={chosen === "FeedScreen" ? ColorPalette.green : ColorPalette.offwhite} style={styles.button}/>
                     <BottomMenuButton font="Ionicons" name="people-outline" text="team" callback={()=>changeChosen("TeamScreen")} color={chosen === "TeamScreen" ? ColorPalette.green : ColorPalette.offwhite} style={styles.button}/>
-                    <BottomMenuButton font="FontAwesome" name="circle-o-notch" text="company" callback={()=>changeChosen("CompanyScreen")} color={chosen === "CompanyScreen" ? ColorPalette.green : ColorPalette.offwhite} style={styles.button}/>
-                    <BottomMenuButton font="FontAwesome5" name="rocket" text="discover" callback={()=>changeChosen("DiscoverScreen")} color={chosen === "DiscoverScreen" ? ColorPalette.green : ColorPalette.offwhite} style={styles.button}/>
+                    <BottomMenuButton font="AntDesign" name="home" text="company" callback={()=>changeChosen("CompanyScreen")} color={chosen === "CompanyScreen" ? ColorPalette.green : ColorPalette.offwhite} style={styles.button}/>
+                    <BottomMenuButton font="AntDesign" name="rocket1" text="discover" callback={()=>changeChosen("DiscoverScreen")} color={chosen === "DiscoverScreen" ? ColorPalette.green : ColorPalette.offwhite} style={styles.button}/>
                     <BottomMenuButton font="Profile" name="rocket1" text="profile" callback={()=>changeChosen("ProfilePageScreen")} color={chosen === "ProfilePageScreen" ? ColorPalette.green : ColorPalette.offwhite} style={styles.button}/>
                 </View>
             </View>

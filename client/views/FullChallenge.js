@@ -50,7 +50,7 @@ const FullChallenge = ({route}) => {
     return (
         <ScrollView style={styles.container}>
             <TouchableWithoutFeedback onPress={goBack}>
-            <Icon name={'rocket1'} size={30} color={'white'}/>
+            <Icon name={'arrowleft'} size={30} color={'white'}/>
             </TouchableWithoutFeedback>
 
             <View style={styles.content}>
