@@ -40,6 +40,21 @@ const FullChallenge = ({route}) => {
         },
     ];
 
+    const data = [
+        {
+            value: '20',
+            text: 'completed challenges'
+        },
+        {
+            value: '50',
+            text: 'cool points'
+        },
+        {
+            value: '80',
+            text: 'something else'
+        }
+    ];
+
     const renderParticipant = ({item}) => (
         <View style={{ marginHorizontal:width*0.022}}>
         <RoundProfileImage image={item.photo} size={50}/>
@@ -57,7 +72,10 @@ const FullChallenge = ({route}) => {
                 <Text style={styles.title}>{activity}</Text>
                 <Text style={styles.description}>{description}</Text>
 
-                <ProgressPart title={"Time Left"} progress={80} label={"2 days"} color={ColorPalette.blue}/>
+                { progress === 100 ?  <ProgressPart title={"Completed"} progress={progress} label={date} color={ColorPalette.green}/> :
+                    <ProgressPart title={""} progress={progress} label={"You're almost there :)"} color={ColorPalette.green}/>
+                }
+
 
                 <Text style={styles.subtitle}>Participants</Text>
                 <View style={styles.participants}>
@@ -72,7 +90,7 @@ const FullChallenge = ({route}) => {
 
 
                 <Text style={styles.subtitle}>Challenge Contribution</Text>
-                <CompanyStats/>
+                <CompanyStats data={data}/>
 
 
 

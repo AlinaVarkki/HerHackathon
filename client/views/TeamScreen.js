@@ -13,6 +13,21 @@ import {useNavigation} from "@react-navigation/native";
 
 const TeamScreen = () => {
 
+    const data = [
+        {
+            value: '20',
+            text: 'completed challenges'
+        },
+        {
+            value: '50',
+            text: 'cool points'
+        },
+        {
+            value: '80',
+            text: 'something else'
+        }
+        ]
+
 
 
     let images1 = [
@@ -28,7 +43,7 @@ const TeamScreen = () => {
             <Text style={styles.biggerTitle}>The Straths</Text>
             <Teammates/>
             <Text style={styles.title}>Statistics</Text>
-            <CompanyStats/>
+            <CompanyStats data={data}/>
             <Text style={styles.title}>Monthly Goals</Text>
             <Goals/>
         </View>
@@ -109,7 +124,8 @@ const styles = StyleSheet.create({
         fontFamily: 'Roboto',
         fontWeight: 'bold',
         fontSize: 35,
-        paddingTop: 20,
+        paddingLeft:10,
+        // paddingTop: 20,
     },
     title:{
         color: ColorPalette.offwhite,

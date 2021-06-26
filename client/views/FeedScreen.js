@@ -68,7 +68,6 @@ const FeedScreen = () => {
                         renderItem={renderCategories}
                         keyExtractor={item => item.id}
                         horizontal={true}
-                        style={{paddingLeft:10}}
 
                 />
             </View>
@@ -88,21 +87,23 @@ const styles = StyleSheet.create({
 
     },
     whiteBigText: {
-        paddingLeft: 20,
         // paddingTop: 25,
         color: 'white',
         fontWeight: 'bold',
-        fontSize: 30
+        fontSize: 35,
+        fontFamily:'Roboto',
+        paddingLeft:10,
+
     },
     whiteText: {
-        paddingLeft: 20,
         paddingBottom: 10,
         color: 'white',
         fontWeight: 'bold',
         fontSize: 20,
+        paddingLeft:10,
     },
     upperPart: {
-
+        // backgroundColor: 'red'
     },
     lowerPart: {
         flex:1,

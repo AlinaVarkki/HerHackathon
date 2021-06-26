@@ -10,12 +10,27 @@ import Stories from "../Components/Stories";
 
 const CompanyScreen = () => {
 
+    const data = [
+        {
+            value: '20',
+            text: 'completed challenges'
+        },
+        {
+            value: '50',
+            text: 'cool points'
+        },
+        {
+            value: '80',
+            text: 'something else'
+        }
+        ];
+
     return (
         <ScrollView style={styles.container}>
             <Stories/>
 
             <Text style={styles.subtitle}>Latest company statistics</Text>
-            <CompanyStats/>
+            <CompanyStats data={data}/>
 
             <Text style={styles.title}>Leaderboard</Text>
             <Top3Leaderboard/>

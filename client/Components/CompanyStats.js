@@ -3,18 +3,29 @@ import {StyleSheet, View} from "react-native";
 import SquareBoi from "./SquareBoi";
 import ColorPalette from "../Assets/ColorPalette";
 
-const CompanyStats = () => {
+const CompanyStats = ({data}) => {
 
-    //TODO: pass data from server into this so it's reuasble
-
-
+    // const data = [
+    //     {
+    //         value: '20',
+    //         text: 'completed challenges'
+    //     },
+    //     {
+    //         value: '50',
+    //         text: 'cool points'
+    //     },
+    //     {
+    //         value: '80',
+    //         text: 'something else'
+    //     }
+    //     ]
 
     return (
         <View style={styles.container}>
 
-            <SquareBoi title='20' text='completed challenges' color={ColorPalette.orange}/>
-            <SquareBoi title='50' text='something' color={ColorPalette.green}/>
-            <SquareBoi title='80' text='something else' color={ColorPalette.blue}/>
+            <SquareBoi title={data[0].value} text={data[0].text} color={ColorPalette.orange}/>
+            <SquareBoi title={data[1].value} text={data[1].text} color={ColorPalette.green}/>
+            <SquareBoi title={data[2].value} text={data[2].text} color={ColorPalette.blue}/>
 
         </View>
     );
