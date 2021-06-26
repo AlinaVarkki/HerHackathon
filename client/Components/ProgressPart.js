@@ -1,7 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, Dimensions, Text} from "react-native";
 import ColorPalette from "../Assets/ColorPalette";
-import Goal from "./Goal";
 
 const ProgressPart = ({title, progress, label, color = ColorPalette.offwhite}) => {
     return (

@@ -5,9 +5,16 @@ import SquareBoi from "../Components/SquareBoi";
 import ColorPalette from "../Assets/ColorPalette";
 import Teammate from "../Components/Teammate";
 import EmptyActivityCard from "../Components/EmptyActivityCard";
+import StickingOutCardAttempt from "../Components/StickingOutCardAttempt";
 
 const ProfilePageScreen = () => {
     const {width} = Dimensions.get("screen");
+    let images = [
+        require('../Assets/Avatars/Alina.png'),
+        require('../Assets/Avatars/Radina.png'),
+        require('../Assets/Avatars/Sophie.png'),
+        require('../Assets/Avatars/Kathie.png'),
+    ]
     return (
         <ScrollView style={styles.container}>
                 <RoundProfileImage image={require('../Assets/Avatars/Slavka.png')} size={110} borderRadium={40}/>
@@ -17,7 +24,7 @@ const ProfilePageScreen = () => {
                 <Text style={{color: 'white', fontSize: 18, }}>Most proud of: stopped travelling by plane</Text>
             <Text style={{color: 'white', fontSize: 30, fontWeight: 'bold', paddingTop: 40}}>Contribution</Text>
 
-            <EmptyActivityCard activity={"Hike"} description={"blfbalhfluafbhafayfg sdhvaf af fvaf da"} />
+            <StickingOutCardAttempt activity={"Hike"} images={images} description={"blfbalhfluafbhafayfjreafgre frf aehkfe g arhg aekf  ge eg qfg sdhvaf af fvaf da"} />
 
             <View style={{flexDirection: 'row'}}>
                 <SquareBoi color={ColorPalette.orange} title={"20"} text={"challenges completed"}/>

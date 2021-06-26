@@ -1,0 +1,235 @@
+import React, {useEffect, useState} from 'react';
+import {
+    Text,
+    View,
+    StyleSheet,
+    FlatList,
+    Pressable,
+    Image,
+    SafeAreaView,
+    Dimensions
+} from 'react-native';
+
+import ColorPalette from "../Assets/ColorPalette";
+import RoundProfileImage from "./RoundProfileImage";
+import activitiesApi from "../api/activitiesApi";
+
+
+const StickingOutCardAttempt = ({activity, images, description}) => {
+
+    const [buttonText, setButtonText] = useState("BE THE FIRST");
+
+    const [participants, setParticipants] = useState(images);
+    const [backgroundColor, setBackgroundColor] = useState(ColorPalette.darkgrey);
+    const [lock, setLock] = useState(false);
+    const [buttonEnabled, setButtonEnabled] = useState(true);
+
+    useEffect(() => {
+        if (images.length > 4) {
+            setBackgroundColor(ColorPalette.orange)
+        }
+        let set = new Set(images)
+        if(set.has(require(`../resources/Avatars/Slavka.png`))) {
+            setButtonText('JOINED')
+            setButtonEnabled(false)
+        }
+    }, []);
+
+    //when pressed Join add Slavka to challenges participants
+
+    const updateParticipant = () => {
+        let submission = {
+            activityName: activity,
+            user: "Slavka"
+        }
+        activitiesApi.addParticipantToChallenge(submission).then(r => {
+        })
+
+        images.push(require(`../resources/Avatars/Slavka.png`))
+        setParticipants(images)
+        setButtonText("JOINED")
+
+        console.log("HEAR" + participants.length)
+        if (participants.length > 4) {
+            setBackgroundColor(ColorPalette.orange)
+            setLock(true)
+        }
+        setButtonEnabled(false)
+    }
+
+    const profileRender = ({item}) => (
+
+        <View style={{paddingHorizontal: 2.5}}>
+            <RoundProfileImage
+                image={item}
+                size={31}
+            />
+        </View>
+
+    )
+
+
+
+    return (
+            <View style={[{backgroundColor:backgroundColor}, styles.listing]}>
+
+                <View style={styles.content}>
+                    <View style={styles.texts}>
+                        <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'baseline'}}>
+                            <Text style={styles.textWhite}>{activity}</Text>
+                            {lock && <Text style={styles.unlocked}>UNLOCKED</Text>}
+                        </View>
+                        <Text style={styles.textWhiteLower}>{description}</Text>
+                    </View>
+
+                    <View style={styles.image}>
+                        <Image style={{height: width*0.35, width: width*0.35,}}
+                               source={require('../resources/images/sketch1.png')}/>
+                    </View>
+
+
+                </View>
+
+                <View style={styles.bottomPart}>
+                    {/*<View style={styles.people}>*/}
+                    {/*    <FlatList*/}
+                    {/*        data = {images}*/}
+                    {/*        keyExtractor={image => image.toString()}*/}
+                    {/*        renderItem={profileRender}*/}
+                    {/*        horizontal={true}*/}
+
+                    {/*    />*/}
+                    {/*    <Text  style={{color: 'white', fontWeight: 'bold', fontSize: 27}}>/5</Text>*/}
+                    {/*</View>*/}
+                    <View style={styles.button}>
+                        <Pressable disabled={!buttonEnabled} style={styles.joinButton} onPress={updateParticipant}>
+                            <Text style={styles.buttonText}>{buttonText}</Text>
+                        </Pressable>
+                    </View>
+                </View>
+
+
+
+                {/*<View style={styles.leftSection}>*/}
+                {/*    <View style={styles.leftUpper}>*/}
+                {/*        <View style={{flexDirection: 'row'}}>*/}
+                {/*            <Text style={styles.textWhite}>{activity}</Text>*/}
+                {/*        </View>*/}
+                {/*        <Text style={styles.textWhiteLower}>{description}</Text>*/}
+                {/*    </View>*/}
+
+                {/*</View>*/}
+                {/*<View style={styles.rightSection}>*/}
+                {/*    <View style={styles.rightUpper}>*/}
+                {/*        <Image style={{height: width*0.35, width: width*0.35, position:'absolute'}}*/}
+                {/*               source={require('../resources/images/sketch1.png')}/>*/}
+                {/*    </View>*/}
+                {/*    <View style={styles.rightLower}>*/}
+                {/*        <Pressable disabled={!buttonEnabled} style={styles.joinButton} onPress={()=>console.log("hello")}>*/}
+                {/*            <Text style={styles.buttonText}>{buttonText}</Text>*/}
+                {/*        </Pressable>*/}
+                {/*    </View>*/}
+                {/*</View>*/}
+
+            </View>
+
+    );
+};
+
+const {width} = Dimensions.get("screen");
+
+const styles = StyleSheet.create({
+    listing: {
+        flex: 1,
+        width: '100%',
+        height: 190,
+        borderRadius: 30,
+        borderWidth: 1,
+        borderColor: 'black',
+        flexWrap: 'nowrap',
+        justifyContent:'space-between',
+        // backgroundColor: ColorPalette.orange
+
+    },
+    content:{
+        // justifyContent:'space-between'
+        alignItems:'flex-end'
+
+
+    },
+    texts:{
+        width: '57%',
+        alignSelf:'flex-start',
+        paddingTop: 20,
+        // backgroundColor: 'green'
+    },
+    unlocked:{
+        color:ColorPalette.offwhite,
+        fontSize:17,
+        letterSpacing:1.2,
+        opacity:0.75
+
+    },
+    image:{
+        height: width*0.35,
+        width: width*0.35,
+        position:'absolute',
+        marginTop: -20,
+        paddingBottom:5,
+        // backgroundColor:'yellow'
+
+    },
+    bottomPart:{
+        paddingBottom: 10,
+        paddingHorizontal: 15,
+        flexDirection: 'row',
+        justifyContent:'space-evenly',
+        alignItems:'baseline',
+        // backgroundColor:'red'
+    },
+    people:{
+        // flex: 1,
+        justifyContent:'flex-start',
+        // backgroundColor:'green',
+        flexDirection: 'row',
+        width: '66%',
+        marginRight:5
+
+    },
+
+    button:{
+
+    },
+    textWhite: {
+        paddingLeft: 20,
+
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 19
+    }, textWhiteLower: {
+        paddingLeft: 20,
+        paddingTop: 5,
+        color: 'white',
+        fontSize: 16
+    },
+
+
+    joinButton: {
+        backgroundColor: '#FFF2D8',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 10,
+        paddingVertical: 8,
+        paddingHorizontal: 12,
+        borderRadius: 20,
+        elevation: 3,
+        margin: 5,
+    },
+    buttonText: {
+        color: '#FFAC00',
+        fontWeight: 'bold',
+        fontSize: 19
+    }
+})
+
+export default StickingOutCardAttempt;
