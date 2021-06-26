@@ -83,7 +83,7 @@ const StickingOutCard = ({activity, images=[], description}) => {
 
     const profileRender = ({item}) => (
 
-        <View style={{paddingHorizontal: 2.5}}>
+        <View style={{paddingHorizontal: 2}}>
             <RoundProfileImage
                 image={item}
                 size={31}
@@ -147,27 +147,6 @@ const StickingOutCard = ({activity, images=[], description}) => {
                     </View>
                 </View>
 
-
-                {/*<View style={styles.leftSection}>*/}
-                {/*    <View style={styles.leftUpper}>*/}
-                {/*        <View style={{flexDirection: 'row'}}>*/}
-                {/*            <Text style={styles.textWhite}>{activity}</Text>*/}
-                {/*        </View>*/}
-                {/*        <Text style={styles.textWhiteLower}>{description}</Text>*/}
-                {/*    </View>*/}
-
-                {/*</View>*/}
-                {/*<View style={styles.rightSection}>*/}
-                {/*    <View style={styles.rightUpper}>*/}
-                {/*        <Image style={{height: width*0.35, width: width*0.35, position:'absolute'}}*/}
-                {/*               source={require('../resources/images/sketch1.png')}/>*/}
-                {/*    </View>*/}
-                {/*    <View style={styles.rightLower}>*/}
-                {/*        <Pressable disabled={!buttonEnabled} style={styles.joinButton} onPress={()=>console.log("hello")}>*/}
-                {/*            <Text style={styles.buttonText}>{buttonText}</Text>*/}
-                {/*        </Pressable>*/}
-                {/*    </View>*/}
-                {/*</View>*/}
 
             </View>
 

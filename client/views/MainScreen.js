@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {SafeAreaView, ScrollView, StyleSheet, View, Text, } from 'react-native';
+import {SafeAreaView, ScrollView, StyleSheet, View, Text, StatusBar} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
 import FeedScreen from "./FeedScreen";
 import CompanyScreen from "./CompanyScreen";
@@ -41,6 +41,7 @@ const MainScreen = () => {
 
     return (
         <SafeAreaView style={styles.screen}>
+        <StatusBar/>
 
             <View style={styles.main}>
                 {content()}

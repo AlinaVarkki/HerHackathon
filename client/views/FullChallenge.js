@@ -82,7 +82,7 @@ const FullChallenge = ({route}) => {
                     <FlatList
                         data={teammates}
                         renderItem={renderParticipant}
-                        keyExtractor={item =>item.id}
+                        keyExtractor={item =>item.name}
                         horizontal={true}
                     />
                 </View>
@@ -94,16 +94,19 @@ const FullChallenge = ({route}) => {
 
 
 
-                <Text style={styles.subtitle}>Update</Text>
+                { progress !== 100 && <Text style={styles.subtitle}>Update</Text>}
+
 
 
 
             </View>
+            { progress !== 100 &&
             <TouchableWithoutFeedback >
                 <View style={styles.button}>
                     <Text style={styles.buttonText}>COMPLETE</Text>
                 </View>
             </TouchableWithoutFeedback>
+            }
 
         </ScrollView>
     )
