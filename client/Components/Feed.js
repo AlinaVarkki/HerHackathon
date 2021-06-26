@@ -3,6 +3,7 @@ import {Text, View, StyleSheet, TouchableWithoutFeedback, ScrollView, FlatList} 
 import ActivityCard from "./ActivityCard";
 import RoundProfileImage from "./RoundProfileImage";
 import activitiesApi from "../api/activitiesApi";
+import StickingOutCard from "./StickingOutCard";
 
 
 const Feed = ({children}) => {
@@ -37,7 +38,7 @@ const Feed = ({children}) => {
     }
 
     const activityRender = ({ item }) => (
-        <ActivityCard
+        <StickingOutCard
             activity={item.activity}
             description={item.description}
             images={getImages(item.names)}

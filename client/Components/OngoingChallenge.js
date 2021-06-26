@@ -24,7 +24,6 @@ const OngoingChallenge = ({activity, progress, images}) => {
                 <View style={styles.leftSection}>
                     <View style={styles.leftUpper}>
                         <Text style={styles.textWhite}>{activity}</Text>
-                        {/*<ProgressPart title={"Progress"} progress={progress} color={ColorPalette.blue} label={""+progress+"%"}/>*/}
                     </View>
                     <View style={styles.leftLower}>
                         <FlatList

@@ -15,9 +15,9 @@ import RoundProfileImage from "./RoundProfileImage";
 import activitiesApi from "../api/activitiesApi";
 
 
-const StickingOutCardAttempt = ({activity, images, description}) => {
+const StickingOutCard = ({activity, images=[], description}) => {
 
-    const [buttonText, setButtonText] = useState("BE THE FIRST");
+    const [buttonText, setButtonText] = useState("JOIN");
 
     const [participants, setParticipants] = useState(images);
     const [backgroundColor, setBackgroundColor] = useState(ColorPalette.darkgrey);
@@ -25,13 +25,17 @@ const StickingOutCardAttempt = ({activity, images, description}) => {
     const [buttonEnabled, setButtonEnabled] = useState(true);
 
     useEffect(() => {
-        if (images.length > 4) {
-            setBackgroundColor(ColorPalette.orange)
-        }
-        let set = new Set(images)
-        if(set.has(require(`../resources/Avatars/Slavka.png`))) {
-            setButtonText('JOINED')
-            setButtonEnabled(false)
+        if (images.length===0) {
+            setButtonText('BE THE FIRST')
+        } else {
+            if (images.length > 4) {
+                setBackgroundColor(ColorPalette.orange)
+            }
+            let set = new Set(images)
+            if(set.has(require(`../resources/Avatars/Slavka.png`))) {
+                setButtonText('JOINED')
+                setButtonEnabled(false)
+            }
         }
     }, []);
 
@@ -53,6 +57,8 @@ const StickingOutCardAttempt = ({activity, images, description}) => {
         if (participants.length > 4) {
             setBackgroundColor(ColorPalette.orange)
             setLock(true)
+        } else if (images.length === 1){
+            setBackgroundColor(ColorPalette.darkGreen)
         }
         setButtonEnabled(false)
     }
@@ -91,16 +97,21 @@ const StickingOutCardAttempt = ({activity, images, description}) => {
                 </View>
 
                 <View style={styles.bottomPart}>
-                    {/*<View style={styles.people}>*/}
-                    {/*    <FlatList*/}
-                    {/*        data = {images}*/}
-                    {/*        keyExtractor={image => image.toString()}*/}
-                    {/*        renderItem={profileRender}*/}
-                    {/*        horizontal={true}*/}
 
-                    {/*    />*/}
-                    {/*    <Text  style={{color: 'white', fontWeight: 'bold', fontSize: 27}}>/5</Text>*/}
-                    {/*</View>*/}
+                    { (images.length!==0) &&
+                        <View style={styles.people}>
+                            <FlatList
+                                data = {images}
+                                keyExtractor={image => image.toString()}
+                                renderItem={profileRender}
+                                horizontal={true}
+
+                            />
+                            <Text  style={{color: 'white', fontWeight: 'bold', fontSize: 27}}>/5</Text>
+                        </View>
+                    }
+
+
                     <View style={styles.button}>
                         <Pressable disabled={!buttonEnabled} style={styles.joinButton} onPress={updateParticipant}>
                             <Text style={styles.buttonText}>{buttonText}</Text>
@@ -148,6 +159,7 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         flexWrap: 'nowrap',
         justifyContent:'space-between',
+        marginVertical:15,
         // backgroundColor: ColorPalette.orange
 
     },
@@ -232,4 +244,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default StickingOutCardAttempt;
+export default StickingOutCard;
