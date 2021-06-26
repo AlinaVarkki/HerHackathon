@@ -64,7 +64,7 @@ const StickingOutCard = ({activity, images=[], description}) => {
                 setAnimationActive(true)
                 setTimeout(function () {
                     setAnimationActive(false)
-                }, 1400);
+                }, 2000);
 
             }
             setButtonEnabled(false)
@@ -95,9 +95,9 @@ const StickingOutCard = ({activity, images=[], description}) => {
 
     if(animationActive) {
         return (
-            <View style={[{backgroundColor: backgroundColor, alignItems: 'center', justifyContent: 'center',paddingTop: 24}, styles.listing]}>
-                <Image style={{width: 130, height: 130}} source={{
-                    uri: 'https://media.giphy.com/media/NBSn8OcMUaQZVd2yG4/giphy.gif'
+            <View style={[{backgroundColor: backgroundColor, alignItems: 'center', justifyContent: 'center', overflow: 'hidden'}, styles.listing]}>
+                <Image style={{width: 210, height: 210}} source={{
+                    uri: 'https://media.giphy.com/media/PDyzRsDkBA9y4rDdBM/giphy.gif'
                 }}/>
             </View>
         )
