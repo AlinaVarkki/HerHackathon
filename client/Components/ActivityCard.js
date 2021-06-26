@@ -1,26 +1,33 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     Text,
     View,
     StyleSheet,
-    TouchableWithoutFeedback,
     FlatList,
-    Button,
     Pressable,
     Image,
-    Dimensions,
     SafeAreaView
 } from 'react-native';
 import RoundProfileImage from "./RoundProfileImage";
 import activitiesApi from "../api/activitiesApi";
+import ColorPalette from "../Assets/ColorPalette";
 
 
 const ActivityCard = ({activity, description, images}) => {
 
     let images1 = [require('../resources/images/1200px-React-icon.svg.png'), require('../resources/images/sketch1.png'), require('../Assets/tempProfilePic.png')]
 
-    const[participants, setParticipants] = useState(images);
-    const[buttonText, setButtonText] = useState("JOIN");
+    useEffect(() => {
+        if (images.length > 4) {
+            setBackgroundColor(ColorPalette.orange)
+            setLock(true)
+        }
+    }, []);
+
+    const [participants, setParticipants] = useState(images);
+    const [buttonText, setButtonText] = useState("JOIN");
+    const [backgroundColor, setBackgroundColor] = useState(ColorPalette.darkgrey);
+    const [lock, setLock] = useState(false);
 
     const profileRender = ({item}) => (
         <RoundProfileImage
@@ -41,29 +48,41 @@ const ActivityCard = ({activity, description, images}) => {
         images.push(require(`../resources/Avatars/Slavka.png`))
         setParticipants(images)
         setButtonText("LEAVE")
+
+        console.log("HEAR" + participants.length)
+        if (participants.length > 3) {
+            setBackgroundColor(ColorPalette.orange)
+            setLock(true)
+        }
     }
 
     return (
         <SafeAreaView>
-            <View style={styles.listing}>
+            <View style={[{backgroundColor: backgroundColor}, styles.listing]}>
                 <View style={styles.leftSection}>
+                    { lock &&
+                    <Text style={{color: 'white', paddingLeft: 20, paddingTop: 20, fontSize: 20, fontWeight: 'bold', opacity: 0.8}}>UNLOCKED</Text>
+                    }
                     <View style={styles.leftUpper}>
-                        <Text style={styles.textWhite}>{activity}</Text>
+                        <View style={{flexDirection: 'row'}}>
+                            <Text style={styles.textWhite}>{activity}</Text>
+                        </View>
                         <Text style={styles.textWhiteLower}>{description}</Text>
                     </View>
                     <View style={styles.leftLower}>
                         <FlatList
-                            data = {participants}
+                            data={participants}
                             keyExtractor={image => image.toString()}
                             renderItem={profileRender}
                             horizontal={true}
                         />
-                        <Text style={{color : 'white', fontWeight: 'bold', fontSize: 27}}>/5</Text>
+                        <Text style={{color: 'white', fontWeight: 'bold', fontSize: 27}}>/5</Text>
                     </View>
                 </View>
                 <View style={styles.rightSection}>
                     <View style={styles.rightUpper}>
-                        <Image style={{height: 110, width: 110, overflow: 'visible'}} source={require('../resources/images/sketch1.png')} />
+                        <Image style={{height: 110, width: 110, overflow: 'visible'}}
+                               source={require('../resources/images/sketch1.png')}/>
                     </View>
                     <View style={styles.rightLower}>
                         <Pressable style={styles.joinButton} onPress={updateParticipant}>
@@ -79,11 +98,11 @@ const ActivityCard = ({activity, description, images}) => {
 const styles = StyleSheet.create({
     textWhite: {
         paddingLeft: 20,
-        paddingTop: 25,
+        paddingTop: 20,
         color: 'white',
         fontWeight: 'bold',
         fontSize: 19
-    },textWhiteLower: {
+    }, textWhiteLower: {
         paddingLeft: 20,
         paddingTop: 5,
         color: 'white',
@@ -91,7 +110,7 @@ const styles = StyleSheet.create({
     },
     listing: {
         flex: 1,
-        backgroundColor: '#222222',
+        // backgroundColor: ColorPalette.darkgrey,
         overflow: 'visible',
         marginTop: 20,
         width: '100%',
@@ -133,7 +152,7 @@ const styles = StyleSheet.create({
 
     },
     joinButton: {
-        backgroundColor : '#FFF2D8',
+        backgroundColor: '#FFF2D8',
         alignItems: 'center',
         justifyContent: 'center',
         paddingVertical: 9,
