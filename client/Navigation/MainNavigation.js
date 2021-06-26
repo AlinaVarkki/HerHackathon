@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import MainScreen from "../views/MainScreen";
 import StoriesSlides from "../views/StoriesSlides";
 import LoginScreen from "../views/LogInScreen";
+import FullChallenge from "../views/FullChallenge";
 
 
 
@@ -18,6 +19,7 @@ const MainNavigation = () => (
 
              <Stack.Screen name="MainScreen" component={MainScreen}/>
              <Stack.Screen name="StoriesSlides" component={StoriesSlides}/>
+             <Stack.Screen name="FullChallenge" component={FullChallenge}/>
 
 
          </Stack.Navigator>

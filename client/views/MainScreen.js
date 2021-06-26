@@ -29,7 +29,7 @@ const MainScreen = () => {
                 return (<ProfilePageScreen/>);
 
             case "TeamScreen":
-                return (<TeamScreen/>);
+                return (<TeamScreen navigation={navigation}/>);
 
             case "DiscoverScreen":
                 return (<DiscoverScreen/>);

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text,ScrollView, FlatList, SectionList} from "react-native";
+import {StyleSheet, View, Text,ScrollView, FlatList, SectionList,TouchableWithoutFeedback} from "react-native";
 import ColorPalette from "../Assets/ColorPalette";
 import Teammates from "../Components/Teammates";
 import CompanyStats from "../Components/CompanyStats";
@@ -9,10 +9,9 @@ import OngoingChallenge from "../Components/OngoingChallenge";
 import ActivityCard from "../Components/ActivityCard";
 import CompletedChallenge from "../Components/CompletedChallenge";
 import TeamActivityCard from "../Components/TeamActivityCard";
+import {useNavigation} from "@react-navigation/native";
 
 const TeamScreen = () => {
-
-
 
 
 
@@ -47,14 +46,14 @@ const TeamScreen = () => {
     const completedChallenges = [
         {
             id: 1,
-            name: "Hike 100km",
+            name: "Hike 20km",
             date: "5th Nov",
             progress:100,
             images: images1
         },
         {
             id:2,
-            name: "Hike 100km",
+            name: "Hike 300km",
             date: "5th Nov",
             progress:100,
             images: images1
@@ -75,15 +74,9 @@ const TeamScreen = () => {
     ];
 
     const renderChallenges = (item) => {
-        console.log(item);
-        // if (item.progress!==100) {
-        //     return(<OngoingChallenge activity={item.name} progress={item.progress} images={item.images}/>);
-        // } else {
-        //     return(<CompletedChallenge activity={item.name} date={item.date} images={item.images}/>);
-        // }
         return(
-          <TeamActivityCard activity={item.name} progress={item.progress} images={item.images} date={item.progress === 100? item.date : ""}/>
-        );
+            <TeamActivityCard activity={item.name} progress={item.progress} images={item.images} date={item.progress === 100? item.date : ""}/>
+          );
     };
 
     return (
