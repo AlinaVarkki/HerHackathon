@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {StyleSheet, View, Text, FlatList, TouchableWithoutFeedback} from "react-native";
 import {useNavigation} from "@react-navigation/native";
 import Feed from "../Components/Feed";
-import HorizontalMenu from "../Components/HorizontalMenu";
 import ColorPalette from "../Assets/ColorPalette";
 import EmptyFeed from "../Components/EmptyFeed";
 
