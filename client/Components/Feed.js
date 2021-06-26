@@ -41,6 +41,7 @@ const Feed = ({children}) => {
             activity={item.activity}
             description={item.description}
             images={getImages(item.names)}
+            names ={item.names.split(" ")}
         />
     )
 
