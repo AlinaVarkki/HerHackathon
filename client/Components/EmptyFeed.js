@@ -9,8 +9,8 @@ import EmptyChallenges from "../Assets/EmptyChallenges";
 
 const EmptyFeed = ({category}) => {
 
-
     const [activities, setActivities] = useState([]);
+    const [, forceUpdate] = React.useState(0);
 
     useEffect(()=>{
         const allActivities = EmptyChallenges.activities;
@@ -26,7 +26,7 @@ const EmptyFeed = ({category}) => {
 
         setActivities(chosenActivities);
 
-    },[])
+    },[category])
 
 
     const activityRender = ({ item }) => (

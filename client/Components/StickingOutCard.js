@@ -32,6 +32,7 @@ const StickingOutCard = ({activity, images=[], description}) => {
         } else {
             if (images.length > 4) {
                 setBackgroundColor(ColorPalette.orange)
+                setLock(true)
             }
             let set = new Set(images)
             if(set.has(require(`../resources/Avatars/Slavka.png`))) {
