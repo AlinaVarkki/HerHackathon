@@ -10,16 +10,15 @@ import ListOfArticles from "../Components/ListOfArticles";
 const DiscoverScreen = () => {
 
     return (
-        <TouchableWithoutFeedback onPress>
-        <View style={styles.container}>
+       <View style={styles.container}>
             <Text style={styles.title}>Team treat</Text>
             <Treats/>
 
             <Text style={styles.title}>Get Inspired</Text>
             <ListOfArticles/>
 
+
         </View>
-        </TouchableWithoutFeedback>
     );
 }
 

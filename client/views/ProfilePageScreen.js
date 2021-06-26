@@ -17,25 +17,25 @@ const ProfilePageScreen = () => {
             <Text style={{color: 'white', fontSize: 30, fontWeight: 'bold', paddingTop: 40}}>Contribution</Text>
 
             <View style={{flexDirection: 'row'}}>
-                <SquareBoi color={ColorPalette.orange} title={"20"} text={"challenges completed"}></SquareBoi>
-                <SquareBoi color={ColorPalette.blue} title={"80%"} text={"team engagement"}></SquareBoi>
-                <SquareBoi color={ColorPalette.darkgrey} title={"5"} text={"consecutive team challenges"}></SquareBoi>
+                <SquareBoi color={ColorPalette.orange} title={"20"} text={"challenges completed"}/>
+                <SquareBoi color={ColorPalette.blue} title={"80%"} text={"team engagement"}/>
+                <SquareBoi color={ColorPalette.darkgrey} title={"5"} text={"consecutive team challenges"}/>
             </View>
 
             <Text style={{color: 'white', fontSize: 30, fontWeight: 'bold', paddingTop: 20, paddingBottom: 10}}>Badges</Text>
             <View style={{flexDirection: 'row'}}>
                 <View style = {{width: width * 0.28, alignItems: 'center'}}>
-                    <RoundProfileImage image={require('../resources/images/1200px-React-icon.svg.png')} size={80}/>
+                    <RoundProfileImage image={require('../Assets/SquareBoiis/Boi2.png')} size={80}/>
                     <Text style={styles.badgeText}>Composting</Text>
                     <Text style={styles.badgeText}>enthusiast</Text>
                 </View>
                 <View style = {{width: width * 0.28, alignItems: 'center'}}>
-                    <RoundProfileImage image={require('../resources/images/1200px-React-icon.svg.png')} size={80}/>
+                    <RoundProfileImage image={require('../Assets/SquareBoiis/Boi6.png')} size={80}/>
                     <Text style={styles.badgeText}>Zero-waste</Text>
                     <Text style={styles.badgeText}>newbie</Text>
                 </View>
                 <View style = {{width: width * 0.28, alignItems: 'center'}}>
-                    <RoundProfileImage image={require('../resources/images/1200px-React-icon.svg.png')} size={80}/>
+                    <RoundProfileImage image={require('../Assets/SquareBoiis/Boi1.png')} size={80}/>
                     <Text style={styles.badgeText}>Turtle</Text>
                     <Text style={styles.badgeText}>Protector</Text>
                 </View>

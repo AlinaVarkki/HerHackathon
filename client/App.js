@@ -4,18 +4,15 @@ import {Button, StyleSheet, Text, View} from 'react-native';
 import activitiesApi from "../client/api/activitiesApi";
 
 import MainNavigation from "./Navigation/MainNavigation";
+import FullChallenge from "./views/FullChallenge";
 
 export default function App() {
 
   return (
     <MainNavigation/>
-      // <Feed></Feed>
+    // <FullChallenge/>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    height: '100%'
-  },
-});
+
+

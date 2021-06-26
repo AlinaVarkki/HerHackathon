@@ -7,6 +7,8 @@ const CompanyStats = () => {
 
     //TODO: pass data from server into this so it's reuasble
 
+
+
     return (
         <View style={styles.container}>
 
