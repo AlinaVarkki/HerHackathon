@@ -80,6 +80,7 @@ const FullChallenge = ({route}) => {
 
         return (
             <View style = {{flex: 1, backgroundColor: ColorPalette.orange, alignItems: 'center', justifyContent: 'center',}}>
+                <Text style={{color: 'white', fontSize: 34}}>+250 points</Text>
                 <Text style={{color: 'white', fontSize: 34}}>Thank you!</Text>
                 <Text style={{color: 'white', fontSize: 27, paddingBottom: 20}}>           - planet</Text>
                 <Image style={{width: 340, height: 340}} source={{
