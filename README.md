@@ -77,7 +77,7 @@ beyond work engagements
 </p>
 
 <p>
-<!-- <img src="gif1.gif"/ width="31%"> -->
+<img src="AcceptChallenge.gif"/ width="31%">
 <!-- <img src="gif2.gif"/ width="31%"> -->
 <!-- <img src="gif3.gif"/ width="31%"> -->
 </p>
