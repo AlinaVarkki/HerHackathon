@@ -22,7 +22,7 @@ const TeamActivityCard = ({activity, description="", photo, progress, compData, 
 
     const navigation = useNavigation();
 
-    let images = [
+    const images = [
         require('../Assets/Avatars/Slavka.png'),
         require('../Assets/Avatars/Alina.png'),
         require('../Assets/Avatars/Radina.png'),
@@ -30,11 +30,36 @@ const TeamActivityCard = ({activity, description="", photo, progress, compData, 
         require('../Assets/Avatars/Kathie.png'),
     ]
 
+    const images1 = [
+        {
+            id:'1',
+            image:  require('../Assets/Avatars/Slavka.png'),
+        },
+        {
+            id:'2',
+            image:  require('../Assets/Avatars/Kathie.png'),
+        },
+        {
+            id:'3',
+            image:  require('../Assets/Avatars/Sophie.png'),
+        },
+        {
+            id:'4',
+            image:  require('../Assets/Avatars/Radina.png'),
+        },
+        {
+            id:'5',
+            image:require('../Assets/Avatars/Alina.png'),
+
+        },
+
+    ]
+
     const profileRender = ({item}) => (
 
         <View style={{paddingHorizontal: 2.5}}>
             <RoundProfileImage
-                image={item}
+                image={item.image}
                 size={31}
             />
         </View>
@@ -80,22 +105,22 @@ const TeamActivityCard = ({activity, description="", photo, progress, compData, 
 
             </View>
 
-            <View style={styles.bottomPart}>
+            {/*<View style={styles.bottomPart}>*/}
 
 
-                <View style={styles.people}>
-                    <FlatList
-                        data = {images}
-                        keyExtractor={image => image.toString()}
-                        renderItem={profileRender}
-                        horizontal={true}
+            {/*    <View style={styles.people}>*/}
+            {/*        <FlatList*/}
+            {/*            data = {images1}*/}
+            {/*            keyExtractor={image => image.id}*/}
+            {/*            renderItem={profileRender}*/}
+            {/*            horizontal={true}*/}
 
-                    />
+            {/*        />*/}
 
-                </View>
+            {/*    </View>*/}
 
 
-            </View>
+            {/*</View>*/}
 
         </View>
             </TouchableWithoutFeedback>
@@ -110,7 +135,7 @@ const styles = StyleSheet.create({
     listing: {
         flex: 1,
         width: '100%',
-        height: 170,
+        height: 125,
         borderRadius: 30,
         borderWidth: 1,
         borderColor: 'black',

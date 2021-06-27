@@ -10,7 +10,7 @@ import ColorPalette from "../Assets/ColorPalette";
 const LoginScreen  = () => {
     const navigation = useNavigation();
 
-    const demoUser = {username: 'slavka',pass:'1234'}
+    const demoUser = {username: 'slavkabo',pass:'1234'}
 
     const [email, onChangeEmail] = useState(null);
     const [password, onChangePassword] = useState(null);

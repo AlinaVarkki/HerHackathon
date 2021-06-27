@@ -56,7 +56,7 @@ const TeamScreen = () => {
             name: "Vegan lunch",
             progress: 53,
             description: 'Grab a sustainable lunch with your work buddies.',
-            images: images1,
+            // images: images1,
             photo: require('../Assets/ChallangeImages/Artboard22.png'),
             compData: [
                 {
@@ -65,7 +65,7 @@ const TeamScreen = () => {
                 },
                 {
                     value: '3',
-                    text: 'animals spared already'
+                    text: 'happier animals'
                 },
                 {
                     value: '+150',
@@ -80,7 +80,7 @@ const TeamScreen = () => {
             date: "21st June",
             progress:100,
             description: 'Trash or treasure? Why does it have to be only one of those?',
-            images: images1,
+            // images: images1,
             photo: require('../Assets/ChallangeImages/Artboard21.png'),
             compData: [
                 {
@@ -102,7 +102,7 @@ const TeamScreen = () => {
             date: "13th June",
             progress:100,
             description: 'Plastic bag, bottle or cutlery - keep saying no. Today, tomorrow, forever.',
-            images: images1,
+            // images: images1,
             photo: require('../Assets/ChallangeImages/Artboard26.png'),
             compData: [
                 {
@@ -135,7 +135,7 @@ const TeamScreen = () => {
 
     const renderChallenges = (item) => {
         return(
-            <TeamActivityCard activity={item.name} compData={item.compData} description={item.description} progress={item.progress} photo={item.photo} images={images1} date={item.progress === 100? item.date : ""}/>
+            <TeamActivityCard activity={item.name} compData={item.compData} description={item.description} progress={item.progress} photo={item.photo} date={item.progress === 100? item.date : ""}/>
           );
     };
 
