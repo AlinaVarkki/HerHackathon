@@ -61,6 +61,13 @@ beyond work engagements
  <li>Tedious(javascript implementation of the TDS protocol)</li>
  <li>multiple libraries</li>
 </ul>  
+     <h4>Design:</h4>
+
+<ul>
+  <li>AdobeXD</li>
+  <li>Illustrator</li>
+ <li>Photoshop</li>
+</ul>  
 </p>
 
 <h2>Visuals</h2>
