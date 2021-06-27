@@ -13,7 +13,7 @@ const FeedScreen = () => {
     const items=[
         {
             id: '1',
-            name: 'APPROVED',
+            name: 'PICKED',
         },
         {
             id: '2',

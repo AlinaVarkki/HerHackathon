@@ -1,9 +1,10 @@
 {
   "expo": {
-    "name": "client",
-    "slug": "client",
+    "name": "Green Teams",
+    "slug": "GreenTeams",
     "version": "1.0.0",
     "orientation": "portrait",
+    "icon": "./Assets/Logo/LogoIconRounded.png",
     "splash": {
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"

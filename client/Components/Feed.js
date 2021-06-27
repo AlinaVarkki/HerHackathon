@@ -14,6 +14,14 @@ const Feed = ({children}) => {
 
     const [activities, setActivities] = useState([]);
 
+    const photos = [
+        require('../Assets/ChallangeImages/Artboard22.png'),
+        require('../Assets/ChallangeImages/Artboard20.png'),
+        require('../Assets/ChallangeImages/Artboard28.png'),
+        require('../Assets/ChallangeImages/Artboard27.png'),
+        require('../Assets/ChallangeImages/Artboard15.png')
+    ]
+
     //get all activities with all the info
     const loadListings = async () => {
         await activitiesApi.getActivities().then(r => {
@@ -28,6 +36,7 @@ const Feed = ({children}) => {
                 activities["description"] = r.data[i + 2]
                 activities["names"] = r.data[i + 3]
                 activities["category"] = r.data[i + 4]
+                activities["photo"] = photos[i/5];
                 ac.push(activities)
                 i = i + 5
             }
@@ -37,12 +46,15 @@ const Feed = ({children}) => {
         })
     }
 
+
+
     const activityRender = ({item}) => (
         <StickingOutCard
             activity={item.activity}
             description={item.description}
             images={getImages(item.names)}
             names={item.names.split(" ")}
+            photo={item.photo}
         />
     )
 

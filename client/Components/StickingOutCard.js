@@ -18,7 +18,7 @@ import BottomMenuButton from "./BottonMenuButton";
 import Icon2 from "react-native-vector-icons/FontAwesome";
 
 
-const StickingOutCard = ({activity, images=[], description}) => {
+const StickingOutCard = ({activity, images=[], description, photo}) => {
 
     const [buttonText, setButtonText] = useState("JOIN");
 
@@ -124,8 +124,7 @@ const StickingOutCard = ({activity, images=[], description}) => {
                     </View>
 
                     <View style={styles.image}>
-                        <Image style={{height: width * 0.35, width: width * 0.35,}}
-                               source={require('../resources/images/sketch1.png')}/>
+                        <Image style={{height: width * 0.4, width: width * 0.4,}} source={photo}/>
                     </View>
 
 
@@ -196,10 +195,10 @@ const styles = StyleSheet.create({
         opacity:0.75,
     },
     image:{
-        height: width*0.35,
-        width: width*0.35,
+        height: width*0.4,
+        width: width*0.4,
         position:'absolute',
-        marginTop: -20,
+        marginTop: -40,
         paddingBottom:5,
         // backgroundColor:'yellow'
 

@@ -33,6 +33,7 @@ const EmptyFeed = ({category}) => {
         <StickingOutCard
             activity={item.title}
             description={item.description}
+            photo={item.image}
         />
     )
 
