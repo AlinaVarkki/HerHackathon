@@ -68,7 +68,7 @@ const TeamScreen = () => {
                     text: 'happier animals'
                 },
                 {
-                    value: '+150',
+                    value: '+250',
                     text: 'possible points'
                 }]
         }
