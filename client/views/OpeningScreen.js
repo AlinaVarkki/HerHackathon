@@ -1,24 +1,37 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {StyleSheet, TouchableWithoutFeedback, View,Text,Image,Dimensions,Animated} from 'react-native';
 import Icon from "react-native-vector-icons/AntDesign";
 import ColorPalette from "../Assets/ColorPalette";
 
 
+
 const OpeningScreen  = () => {
 
+    const navigation = useNavigation();
+
+    const fadeAnim1 = useRef(new Animated.Value(0)).current;
+
+
     const animate = () => {
-        Animated.timing()
+        Animated.timing(fadeAnim1, { toValue: 1, duration: 5000, useNativeDriver:true }).start();
+
+        setTimeout(navigation.navigate("LoginScreen"),5000);
+    }
+
+    const finalT = () => {
+        setTimeout(animate,1000);
     }
 
     return(
 
         <View style={styles.container}>
 
-            <Animated.View>
-                <Image  style={styles.image} source={require('../Assets/Logo/LogoInApp.png')} onLoad={animate}/>
-                <Text style={styles.title}>Green Teams</Text>
-            </Animated.View>
+            <View >
+                <Image onLoad={finalT()} style={{...styles.image, }} source={require('../Assets/Logo/LogoInApp.png')} />
+
+                <Animated.Text style={{...styles.title, opacity:fadeAnim1}}>Green Teams</Animated.Text>
+            </View>
 
         </View>
     )

@@ -1,46 +1,106 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Dimensions, StyleSheet, View, FlatList} from "react-native";
 import ColorPalette from "../Assets/ColorPalette";
 import SquareLeaderboardBoi from "./SquareLeaderboardBoi";
 import StoriesBubble from "./StoriesBubble";
 import NewStoryAdder from "./NewStoryAdder";
+import * as ImagePicker from "expo-image-picker";
 
 const Stories = () => {
 
-    const stories = [{
-        id: '0',
-            title: 'First Item',
-        photo: require('../Assets/SquareBoiis/Boi2.png')
-    },
-    {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-            title: 'Second Item',
-        photo: require('../Assets/SquareBoiis/Boi4.png')
+    const [photos, addPhoto] = useState(
+        [
+            {
+                id: 'photo1',
+                photo: require('../Assets/SquareBoiis/Boi5.png')
 
-    },
-    {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-            title: 'Third Item',
-        photo: require('../Assets/SquareBoiis/Boi5.png')
+            },{
+            id: 'photo2',
 
-    },{
-            id: '58694a0f-3da1-471f-bd96-145571e29d7244',
-            title: 'Third Item',
             photo: require('../Assets/SquareBoiis/Boi1.png')
 
         },{
-            id: '58694a0f-3da1-471f-bd96-145571e29d7442',
-            title: 'Third Item',
+            id: 'photo3',
             photo: require('../Assets/SquareBoiis/Boi2.png')
+        }]
+    );
 
-        }];
+    const [refresh, toggleRefresh] = useState(true);
+
+    const stories = [{
+        id: 'capture',
+        photo: require('../Assets/SquareBoiis/Boi2.png')
+    },
+    {
+        id: 'upload',
+        photo: require('../Assets/SquareBoiis/Boi4.png')
+
+    }];
+
+    useEffect(()=>{
+
+    },[refresh]);
+
+    const captureImage = async () => {
+        let options = {
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            quality: 0.5,
+            saveToPhotos: true,
+            storageOptions: {
+                privateDirectory: true,
+            },
+            base64: true,
+        };
+
+        let result = await ImagePicker.launchCameraAsync(options);
+
+        if (!result.cancelled) {
+            const image = result.uri;
+            const entry = {id: ""+Math.random(), photo: {uri:image}};
+            photos.push(entry);
+            addPhoto(photos);
+            toggleRefresh(!refresh);
+
+        }
+    };
+
+    const uploadImage = async () => {
+        let options = {
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            quality: 0.5,
+            saveToPhotos: true,
+            storageOptions: {
+                privateDirectory: true,
+            },
+            base64: true,
+        };
+
+        let result = await ImagePicker.launchImageLibraryAsync(options);
+
+        if (!result.cancelled) {
+            const image = result.uri;
+            const entry = {id: ""+Math.random(), photo: {uri:image}};
+            photos.push(entry);
+            addPhoto(photos);
+            toggleRefresh(!refresh);
+
+
+        }
+    };
+
+
 
     const renderStory = ({item}) => {
-        if (item.id === '0') {
+        if (item.id === 'capture' ) {
            return (
-               <NewStoryAdder/>
+               <NewStoryAdder handler={captureImage} type={'capture'}/>
            );
 
+        } else if (item.id === 'upload' ) {
+            return (
+                <NewStoryAdder handler={uploadImage} type={'upload'}/>
+
+                );
         } else {
             return (
                 <StoriesBubble photo={item.photo} storyID={item.id}/>
@@ -52,7 +112,7 @@ const Stories = () => {
         <View style={styles.container}>
 
             <FlatList
-                data={stories}
+                data={stories.concat(photos.reverse())}
                 renderItem={renderStory}
                 keyExtractor={item => item.id}
                 horizontal={true}

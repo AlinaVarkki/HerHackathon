@@ -6,6 +6,7 @@ import MainScreen from "../views/MainScreen";
 import StoriesSlides from "../views/StoriesSlides";
 import LoginScreen from "../views/LogInScreen";
 import FullChallenge from "../views/FullChallenge";
+import OpeningScreen from "../views/OpeningScreen";
 
 
 

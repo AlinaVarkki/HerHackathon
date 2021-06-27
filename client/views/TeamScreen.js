@@ -23,8 +23,8 @@ const TeamScreen = () => {
             text: 'cool points'
         },
         {
-            value: '80',
-            text: 'something else'
+            value: '1938',
+            text: 'points earned'
         }
         ]
 

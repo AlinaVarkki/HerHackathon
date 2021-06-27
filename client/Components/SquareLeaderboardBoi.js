@@ -7,7 +7,7 @@ const SquareLeaderboardBoi = ({title, photoURL, teamName, points, color}) => {
     return (
         <View style={{...styles.box, backgroundColor: color}}>
                 <Text style={styles.title}>{title}</Text>
-                <Image source={photoURL} style={styles.image}/>
+            <Image source={photoURL} style={styles.image}/>
                 <Text style={styles.name}>{teamName}</Text>
                 <Text style={styles.points}>{points}</Text>
 
