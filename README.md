@@ -4,7 +4,7 @@
 <h2>GREEN TEAMS :recycle: :handshake:<br>
 This project was developed in 63 hours as a submission for Microsoft Challenge during <a href="https://www.thehackathoncompany.com/herhackathon-2021">HerHackathon</a> :star: </h2>
 
-<p>GREEN Teams is creating a sustainable future through shared responsibility and team building challenges.<br>
+<p>GREEN Teams is creating a sustainable future through shared responsibility and team building challenges. Our app allows company team members to do sustainable activities and earn point that can be redeemed for different prizes. The app benefits both the environment and teamwork.<br>
 <br>
 
 
@@ -78,6 +78,7 @@ beyond work engagements
 
 <p>
 <img src="AcceptChallenge.gif"/ width="31%">
-<!-- <img src="gif2.gif"/ width="31%"> -->
+<img src="client/Assets/team.png"/ width="32.35%">
+ <img src="client/Assets/company.png"/ width="32.35%">
 <!-- <img src="gif3.gif"/ width="31%"> -->
 </p>
