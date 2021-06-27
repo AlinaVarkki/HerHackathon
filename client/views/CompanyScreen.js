@@ -12,16 +12,16 @@ const CompanyScreen = () => {
 
     const data = [
         {
-            value: '20',
-            text: 'completed challenges'
+            value: '33%',
+            text: 'energy use reduction'
         },
         {
-            value: '50',
-            text: 'cool points'
+            value: '64',
+            text: 'teams playing'
         },
         {
-            value: '80',
-            text: 'something else'
+            value: '47%',
+            text: 'recycling improvement'
         }
         ];
 

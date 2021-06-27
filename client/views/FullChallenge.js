@@ -14,7 +14,7 @@ const FullChallenge = ({route}) => {
 
     const [animationActive, setAnimationActive] = useState(false);
 
-    const {activity, description, images, progress, date} = route.params;
+    const {activity, description, images, progress, date, compData} = route.params;
 
     const navigation = useNavigation();
 
@@ -30,7 +30,6 @@ const FullChallenge = ({route}) => {
         navigation.goBack();
     };
 
-    //TODO switch these for database access
     const teammates = [
         {
             name: 'slavka',
@@ -54,20 +53,7 @@ const FullChallenge = ({route}) => {
         },
     ];
 
-    const data = [
-        {
-            value: '20',
-            text: 'completed challenges'
-        },
-        {
-            value: '50',
-            text: 'cool points'
-        },
-        {
-            value: '80',
-            text: 'something else'
-        }
-    ];
+
 
     const renderParticipant = ({item}) => (
         <View style={{marginHorizontal: width * 0.022}}>
@@ -120,7 +106,7 @@ const FullChallenge = ({route}) => {
 
 
                     <Text style={styles.subtitle}>Challenge Contribution</Text>
-                    <CompanyStats data={data}/>
+                    <CompanyStats data={compData}/>
 
 
                     {progress !== 100 &&
@@ -137,7 +123,6 @@ const FullChallenge = ({route}) => {
                 </View>
                 {progress !== 100 &&
                 <TouchableWithoutFeedback onPress={
-                    // () => navigation.navigate("MainScreen", {screen: Math.random()})
                     () => setAnimationActive(true)
                 }>
                     <View style={styles.button}>

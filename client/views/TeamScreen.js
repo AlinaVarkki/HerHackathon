@@ -53,25 +53,70 @@ const TeamScreen = () => {
 
     const ongoingChallenges = [
         {
-            name: "Hike 100km",
+            name: "Vegan lunch",
             progress: 53,
-            images: images1
+            description: 'Grab a sustainable lunch with your work buddies.',
+            images: images1,
+            photo: require('../Assets/ChallangeImages/Artboard22.png'),
+            compData: [
+                {
+                    value: '-15kg',
+                    text: 'CO2 emissions so far'
+                },
+                {
+                    value: '3',
+                    text: 'animals spared already'
+                },
+                {
+                    value: '+150',
+                    text: 'possible points'
+                }]
         }
     ];
     const completedChallenges = [
         {
             id: 1,
-            name: "Hike 20km",
-            date: "5th Nov",
+            name: "Reusing workshop",
+            date: "21st June",
             progress:100,
-            images: images1
+            description: 'Trash or treasure? Why does it have to be only one of those?',
+            images: images1,
+            photo: require('../Assets/ChallangeImages/Artboard21.png'),
+            compData: [
+                {
+                    value: '20kg',
+                    text: 'worth of trash reused'
+                },
+                {
+                    value: '5',
+                    text: 'treasures found'
+                },
+                {
+                    value: '+100',
+                    text: 'points'
+                }]
         },
         {
             id:2,
-            name: "Hike 300km",
-            date: "5th Nov",
+            name: "Single use plastics",
+            date: "13th June",
             progress:100,
-            images: images1
+            description: 'Plastic bag, bottle or cutlery - keep saying no. Today, tomorrow, forever.',
+            images: images1,
+            photo: require('../Assets/ChallangeImages/Artboard26.png'),
+            compData: [
+                {
+                    value: '120',
+                    text: 'plastic products skipped'
+                },
+                {
+                    value: '3',
+                    text: 'turtles saved'
+                },
+                {
+                    value: '+120',
+                    text: 'points'
+                }]
         },
     ];
 
@@ -90,7 +135,7 @@ const TeamScreen = () => {
 
     const renderChallenges = (item) => {
         return(
-            <TeamActivityCard activity={item.name} progress={item.progress} images={item.images} date={item.progress === 100? item.date : ""}/>
+            <TeamActivityCard activity={item.name} compData={item.compData} description={item.description} progress={item.progress} photo={item.photo} images={images1} date={item.progress === 100? item.date : ""}/>
           );
     };
 

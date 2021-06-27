@@ -18,9 +18,17 @@ import ProgressPart from "./ProgressPart";
 import {useNavigation} from "@react-navigation/native";
 
 
-const TeamActivityCard = ({activity, description="hello a description belongs here", images, progress, date=""}) => {
+const TeamActivityCard = ({activity, description="", photo, progress, compData, date=""}) => {
 
     const navigation = useNavigation();
+
+    let images = [
+        require('../Assets/Avatars/Slavka.png'),
+        require('../Assets/Avatars/Alina.png'),
+        require('../Assets/Avatars/Radina.png'),
+        require('../Assets/Avatars/Sophie.png'),
+        require('../Assets/Avatars/Kathie.png'),
+    ]
 
     const profileRender = ({item}) => (
 
@@ -39,7 +47,9 @@ const TeamActivityCard = ({activity, description="hello a description belongs he
             description:description,
             images: images,
             progress:progress,
-            date: date}
+            date: date,
+            compData: compData
+        }
         navigation.navigate("FullChallenge", data);
 
     }
@@ -63,8 +73,8 @@ const TeamActivityCard = ({activity, description="hello a description belongs he
                 </View>
 
                 <View style={styles.image}>
-                    <Image style={{height: width*0.35, width: width*0.35,}}
-                           source={require('../resources/images/sketch1.png')}/>
+                    <Image style={{height: width*0.4, width: width*0.4,}}
+                           source={photo}/>
                 </View>
 
 
@@ -121,6 +131,8 @@ const styles = StyleSheet.create({
         alignSelf:'flex-start',
         paddingTop: 20,
         paddingLeft: 20,
+        // backgroundColor: ColorPalette.orange
+
 
     },
     unlocked:{
@@ -131,10 +143,10 @@ const styles = StyleSheet.create({
 
     },
     image:{
-        height: width*0.35,
-        width: width*0.35,
+        height: width*0.4,
+        width: width*0.4,
         position:'absolute',
-        marginTop: -20,
+        marginTop: -40,
         paddingBottom:5,
         // backgroundColor:'yellow'
 
