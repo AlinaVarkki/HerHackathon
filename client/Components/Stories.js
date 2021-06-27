@@ -5,9 +5,12 @@ import SquareLeaderboardBoi from "./SquareLeaderboardBoi";
 import StoriesBubble from "./StoriesBubble";
 import NewStoryAdder from "./NewStoryAdder";
 import * as ImagePicker from "expo-image-picker";
+import {useNavigation} from "@react-navigation/native";
 
 const Stories = () => {
 
+
+    const navigation = useNavigation();
     const [photos, addPhoto] = useState(
         [
             {
@@ -40,6 +43,11 @@ const Stories = () => {
     useEffect(()=>{
 
     },[refresh]);
+
+    const openStories = (id) => {
+        // const args = {id:id, pictures:photos};
+        // navigation.navigate("StoriesSlides", {args});
+    };
 
     const captureImage = async () => {
         let options = {
@@ -103,7 +111,7 @@ const Stories = () => {
                 );
         } else {
             return (
-                <StoriesBubble photo={item.photo} storyID={item.id}/>
+                <StoriesBubble photo={item.photo} storyID={item.id} callback={()=>openStories(item.id)}/>
             );
         }
     };

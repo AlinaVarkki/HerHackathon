@@ -15,16 +15,16 @@ const TeamScreen = () => {
 
     const data = [
         {
-            value: '20',
-            text: 'completed challenges'
+            value: '1.6k',
+            text: 'kg of waste recycled'
         },
         {
-            value: '50',
-            text: 'cool points'
+            value: '3',
+            text: 'trees planted'
         },
         {
             value: '1938',
-            text: 'points earned'
+            text: 'points earned so far'
         }
         ]
 

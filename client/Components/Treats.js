@@ -25,19 +25,31 @@ const Treats = () => {
             points: 500,
         },{
             id: '2',
-            title: "Zero-waste lunch",
-            category: "NUTRITION",
-            points: 500,
+            title: "A collection of reusable containers",
+            category: "ZERO-WASTE",
+            points: 750,
         },{
             id: '3',
-            title: "Zero-waste lunch",
-            category: "NUTRITION",
-            points: 500,
+            title: "1 year paid bike sharing subscription",
+            category: "FITNESS",
+            points: 1000,
         },{
             id: '4',
-            title: "Zero-waste lunch",
-            category: "NUTRITION",
-            points: 500,
+            title: "Free courses of your choice",
+            category: "GROWTH",
+            points: 2500,
+        },
+        {
+            id: '5',
+            title: "Green conference tickets",
+            category: "GROWTH",
+            points: 7500,
+        },
+        {
+            id: '6',
+            title: "A day off",
+            category: "PERSONAL",
+            points: 15000,
         },
 
     ];

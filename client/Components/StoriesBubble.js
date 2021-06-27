@@ -2,21 +2,20 @@ import React from 'react';
 import {StyleSheet, View, Dimensions, Text, TouchableWithoutFeedback, Image} from "react-native";
 import ColorPalette from "../Assets/ColorPalette";
 import StoriesSlides from "../views/StoriesSlides";
-import {useNavigation} from "@react-navigation/native";
 
 
-const StoriesBubble = ({photo, storyID}) => {
+const StoriesBubble = ({photo, storyID, callback}) => {
 
-    const navigation = useNavigation();
+
 
     const openStory = () => {
         console.log("opening a story")
-        navigation.navigate("StoriesSlides");
+
 
     }
 
     return (
-        <TouchableWithoutFeedback onPress={openStory}>
+        <TouchableWithoutFeedback onPress={callback}>
 
         <View style={{...styles.box, backgroundColor: ColorPalette.blue}}>
             <Image source={photo} style={styles.photo}/>

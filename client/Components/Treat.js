@@ -9,7 +9,6 @@ const Treat = ({title, category, points, photo}) => {
             <View style={styles.background}>
                 <Image style={styles.background} source={photo}/>
             </View>
-            {/*<View style={styles.foreground}>*/}
                 <Text style={styles.category}>{category}</Text>
 
                 <Text style={styles.title}>{title}</Text>
@@ -18,9 +17,12 @@ const Treat = ({title, category, points, photo}) => {
 
                 <View>
                     <Text style={styles.points}>{points} points</Text>
-                    <TouchableWithoutFeedback onPress={()=>Linking.openURL("https://www.youtube.com/watch?v=VgojnNgmgVs")}>
-                        <View style={styles.button}>
-                        <Text style={styles.buttonText}>get</Text>
+                    <TouchableWithoutFeedback onPress={()=>Linking.openURL("https://www.youtube.com/watch?v=VgojnNgmgVs")} disabled={points > 2000}>
+                        <View style={{...styles.button, backgroundColor: points < 2000 ? ColorPalette.offwhite : '#A5A5A5'}}>
+
+                            {points < 600 ?
+                                <Text style={{...styles.buttonText, color:ColorPalette.darkgrey}}> ✓</Text> :
+                                <Text style={{...styles.buttonText, color:ColorPalette.darkgrey}}>get</Text>}
                         </View>
                     </TouchableWithoutFeedback>
                 </View>
@@ -45,7 +47,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         padding: 5,
         paddingVertical: 15,
-        backgroundColor: ColorPalette.orange
+        backgroundColor: ColorPalette.orange,
+        elevation:5,
 
     },
     background: {
@@ -87,18 +90,17 @@ const styles = StyleSheet.create({
         fontSize:15,
     },
     button: {
-        backgroundColor: ColorPalette.offwhite,
+        // backgroundColor: ColorPalette.offwhite,
         paddingHorizontal: 20,
         paddingVertical: 6,
         borderRadius: 20,
         marginTop:7,
-
+        elevation: 3,
     },
     buttonText: {
-        color: ColorPalette.darkgrey,
         fontSize:15,
         textAlign: 'center',
-
+        // color: ColorPalette.darkgrey
     }
 
 });
