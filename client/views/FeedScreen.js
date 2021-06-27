@@ -21,20 +21,20 @@ const FeedScreen = () => {
         },
         {
             id: '3',
-            name: 'RECYCLING',
+            name: 'FITNESS',
         },
         {
             id: '4',
-            name: 'FITNESS',
+            name: 'VOLUNTEER',
+
         },
         {
             id: '5',
             name: 'ZERO-WASTE',
-
         },
         {
             id: '6',
-            name: 'VOLUNTEER',
+            name: 'RECYCLING',
         }]
 
     const renderCategories = ({item}) => {

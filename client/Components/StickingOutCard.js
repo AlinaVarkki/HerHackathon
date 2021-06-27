@@ -13,6 +13,9 @@ import {
 import ColorPalette from "../Assets/ColorPalette";
 import RoundProfileImage from "./RoundProfileImage";
 import activitiesApi from "../api/activitiesApi";
+import BottonMenuButton from "./BottonMenuButton";
+import BottomMenuButton from "./BottonMenuButton";
+import Icon2 from "react-native-vector-icons/FontAwesome";
 
 
 const StickingOutCard = ({activity, images=[], description}) => {
@@ -111,7 +114,11 @@ const StickingOutCard = ({activity, images=[], description}) => {
                     <View style={styles.texts}>
                         <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline'}}>
                             <Text style={styles.textWhite}>{activity}</Text>
-                            {lock && <Text style={styles.unlocked}>UNLOCKED</Text>}
+                            {lock &&
+                            // <Text style={styles.unlocked}>UNLOCKED</Text>
+                            // <BottomMenuButton font="Profile" name="rocket1" text=" " color={ColorPalette.offwhite}/>
+                                <Icon2 name="unlock" size={30} color={ColorPalette.offwhite} style={{opacity: 0.8}}/>
+                            }
                         </View>
                         <Text style={styles.textWhiteLower}>{description}</Text>
                     </View>
@@ -186,8 +193,7 @@ const styles = StyleSheet.create({
         color:ColorPalette.offwhite,
         fontSize:17,
         letterSpacing:1.2,
-        opacity:0.75
-
+        opacity:0.75,
     },
     image:{
         height: width*0.35,
@@ -217,7 +223,6 @@ const styles = StyleSheet.create({
     },
 
     button:{
-
     },
     textWhite: {
         paddingLeft: 20,
