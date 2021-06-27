@@ -77,7 +77,7 @@ beyond work engagements
 </p>
 
 <p>
-<img src="client/Assets/AcceptChallenge.gif"/ width="31%">
+<img src="AcceptChallenge.gif"/ width="31%">
 <img src="client/Assets/team.png"/ width="32.35%">
  <img src="client/Assets/company.png"/ width="32.35%">
 <!-- <img src="gif3.gif"/ width="31%"> -->
