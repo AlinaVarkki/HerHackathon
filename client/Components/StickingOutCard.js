@@ -54,8 +54,8 @@ const StickingOutCard = ({activity, images=[], description, photo}) => {
         }
 
         if(buttonText == "JOIN") {
-            activitiesApi.addParticipantToChallenge(submission).then(r => {
-            })
+            // activitiesApi.addParticipantToChallenge(submission).then(r => {
+            // })
 
             images.push(require(`../resources/Avatars/Slavka.png`))
             setParticipants(images)

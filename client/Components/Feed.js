@@ -24,26 +24,82 @@ const Feed = ({children}) => {
 
     //get all activities with all the info
     const loadListings = async () => {
-        await activitiesApi.getActivities().then(r => {
-            let i = 0;
-
+        // await activitiesApi.getActivities().then(r => {
+        //     let i = 0;
+        //
             let ac = []
-            while (i < r.data.length) {
-                console.log("HEREEE")
-                let activities = {}
-                activities["id"] = r.data[i]
-                activities["activity"] = r.data[i + 1]
-                activities["description"] = r.data[i + 2]
-                activities["names"] = r.data[i + 3]
-                activities["category"] = r.data[i + 4]
-                activities["photo"] = photos[i/5];
-                ac.push(activities)
-                i = i + 5
-            }
+        //
+        //     // getting rid of server side code to make a nice apk
+        //     while (i < r.data.length) {
+        //         console.log("HEREEE")
+        //         let activities = {}
+        //         activities["id"] = r.data[i]
+        //         activities["activity"] = r.data[i + 1]
+        //         activities["description"] = r.data[i + 2]
+        //         activities["names"] = r.data[i + 3]
+        //         activities["category"] = r.data[i + 4]
+        //         activities["photo"] = photos[i/5];
+        //         ac.push(activities)
+        //         i = i + 5
+        //     }
+
+            let activities = {}
+            activities["id"] = 5
+            activities["activity"] = "Vegan lunch"
+            activities["description"] = "Grab a sustainable lunch with your work buddies . Quick, easy and good for our planet!"
+            activities["names"] = "Sophie Alina Radina Annie"
+            activities["category"] = "food"
+            activities["photo"] = photos[1];
+            ac.push(activities)
+
+            activities = {}
+            activities["id"] = 6
+            activities["activity"] = "Sustainability movie"
+            activities["description"] = "Watch and educate with you mates! Check moviesuggestions.com"
+            activities["names"] = "Alina Radina Sophie"
+            activities["category"] = "Education"
+            activities["photo"] = photos[3];
+            ac.push(activities)
+
+            activities = {}
+            activities["id"] = 7
+            activities["activity"] = "Farmer's Market Visit"
+            activities["description"] = "Support our local farmers while going for a fun trip with your mates"
+            activities["names"] = "Alina Annie"
+            activities["category"] = "Food"
+            activities["photo"] = photos[2];
+            ac.push(activities)
+
+            activities = {}
+            activities["id"] = 8
+            activities["activity"] = "Pitch sustainable idea "
+            activities["description"] = "We would LOVE to hear from you, email us at ideas@outlook.com"
+            activities["names"] = "Sophie"
+            activities["category"] = "Education"
+            activities["photo"] = photos[0];
+            ac.push(activities)
+
+            activities = {}
+            activities["id"] = 9
+            activities["activity"] = "Clean a beach/field/forest"
+            activities["description"] = "Join the local charity organization and make an impact"
+            activities["names"] = "Sophie Alina Annie Radina"
+            activities["category"] = "Education"
+            activities["photo"] = photos[4];
+            ac.push(activities)
+
+            // activities = {}
+            // activities["id"] = 6
+            // activities["activity"] = "Get vegan lunch"
+            // activities["description"] = "please"
+            // activities["names"] = "Sophie Radina Alina Annie"
+            // activities["category"] = "food"
+            // activities["photo"] = photos[2/5];
+            // ac.push(activities)
 
             setActivities(ac);
-            console.log(r.data)
-        })
+        //     console.log(r.data)
+        // })
     }
 
 
